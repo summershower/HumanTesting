@@ -7,12 +7,14 @@
     transition: all 0.3s ease;
     border-radius: 10px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, .05);
+    box-sizing: border-box;
+    padding: 20px;
     svg {
       color: rgb(149, 195, 232);
     }
     &:hover {
       box-shadow: 2px 2px 30px rgba(0, 0, 0, .07);
-      transform: scale(1.02) translateY(-3px) ;
+      transform: scale(1.02) translateY(-3px);
       svg {
         color: orange;
       }
@@ -25,14 +27,15 @@
     padding: 50px 100px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 768px) {
-
   .cubes {
     padding: 20px;
     grid-template-columns: 1fr;
-  grid-template-rows: 8fr;
+    grid-template-rows: 8fr;
   }
 }

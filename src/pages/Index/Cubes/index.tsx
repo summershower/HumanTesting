@@ -1,6 +1,6 @@
 import styles from './index.less'
 import { Link } from 'umi'
-import Icons from './icons'
+import Icons from '../../../components/Icons'
 import { IIcon } from "@/types"
 
 export default function Cubes() {
