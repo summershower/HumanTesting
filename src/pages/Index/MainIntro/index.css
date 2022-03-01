@@ -1,0 +1,61 @@
+@keyframes dropDown {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+.mainIntro {
+  background: #2b87d1;
+  color: white;
+  text-align: center;
+  padding: 50px 0;
+  box-sizing: border-box;
+}
+.mainIntro .title,
+.mainIntro .intro {
+  color: white;
+}
+.mainIntro .title {
+  font-size: 64px;
+  animation: dropDown 0.5s ease-in-out;
+}
+.mainIntro .intro {
+  font-size: 28px;
+  animation: dropDown 0.6s ease-in-out;
+}
+.mainIntro svg {
+  animation: dropDown 0.4s ease-in-out;
+}
+.mainIntro .startBtn {
+  display: inline-block;
+  border-radius: 5px;
+  color: #333;
+  background: #ffd154;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  animation: dropDown 0.7s ease-in-out;
+  font-size: 24px;
+}
+@media (min-width: 768px) {
+  .mainIntro {
+    height: 540px;
+  }
+}
+@media (max-width: 768px) {
+  .mainIntro {
+    height: 80vh;
+    background: #2b87d1;
+    padding: 50px 10px;
+  }
+  .mainIntro .title {
+    font-size: 50px;
+  }
+  .mainIntro .intro {
+    font-size: 28px;
+  }
+}
