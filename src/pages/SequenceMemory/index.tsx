@@ -1,16 +1,15 @@
 import Playground from '@/components/Playground'
 import GamesInfo from '@/components/GamesInfo'
 import icons from "@/components/Icons"
-export default function ReactionTime() {
-
+export default function SequenceMemory() {
   const playgroundIntro = {
-    title: "反应时间测试",
-    desc: "当红色的盒子变成绿色时，请用最快的速度点击屏幕。\r\n按下此处开始",
-    icon: icons.Lighting,
+    title: "连续记忆测试",
+    desc: "请记住顺序",
+    icon: icons.Block,
     hideBtn: true
   }
-  const gamesInfo ={
-    pic:require("@/static/images/reactionTimeStatistics.png"),
+  const gamesInfo = {
+    pic: require("@/static/images/reactionTimeStatistics.png"),
     desc: `这是一个简单的工具来衡量你的反应时间
 
     根据目前收集的数据，平均（中位数）反应时间为273毫秒。
@@ -30,6 +29,7 @@ export default function ReactionTime() {
   }
   return (
     <div>
+      aaa
       <Playground intro={playgroundIntro}></Playground>
       <GamesInfo info={gamesInfo}></GamesInfo>
     </div>

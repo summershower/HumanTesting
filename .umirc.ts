@@ -6,10 +6,14 @@ export default defineConfig({
     type: 'none',
   },
   routes: [
-    { path: '/', component: '@/pages/index' },
-    { path: '/reactiontime', component: '@/pages/ReactionTime' },
-
-    
+    {
+      path: '/', component: '@/pages/index',
+      routes: [
+        { path: '/', component: '@/pages/Homepage' },
+        { path: '/reactiontime', component: '@/pages/ReactionTime' },
+        { path: '/sequencememory', component: '@/pages/SequenceMemory' },
+      ]
+    },
   ],
   fastRefresh: {},
 });
