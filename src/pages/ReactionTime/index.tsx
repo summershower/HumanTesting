@@ -3,12 +3,11 @@ import GamesInfo from '@/components/GamesInfo'
 import icons from "@/components/Icons"
 export default function ReactionTime() {
 
-  const playgroundIntro = {
-    title: "反应时间测试",
-    desc: "当红色的盒子变成绿色时，请用最快的速度点击屏幕。\r\n按下此处开始",
-    icon: icons.Lighting,
-    hideBtn: true
-  }
+  // const playgroundIntro = {
+  //   title: "反应时间测试",
+  //   desc: "当红色的盒子变成绿色时，请用最快的速度点击屏幕。\r\n按下此处开始",
+  //   icon: icons.Lighting,
+  // }
   const gamesInfo ={
     pic:require("@/static/images/reactionTimeStatistics.png"),
     desc: `这是一个简单的工具来衡量你的反应时间
@@ -30,7 +29,7 @@ export default function ReactionTime() {
   }
   return (
     <div>
-      <Playground intro={playgroundIntro}></Playground>
+      <Playground></Playground>
       <GamesInfo info={gamesInfo}></GamesInfo>
     </div>
   )

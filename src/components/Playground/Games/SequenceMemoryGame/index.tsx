@@ -1,11 +1,12 @@
 import styles from './index.less';
 import { useEffect, useState, useRef, useCallback } from 'react';
 export default function SequenceMemoryGame({ restart }: { restart: Function }) {
+  // 设定游戏状态常量
   const GAMING = 'gaming';
   const FAILED = 'failed';
   const RESULT = 'result';
   const [state, setState] = useState(GAMING);
-
+  // 设定随机数组
   const [sequenceArr, setSequenceArr] = useState<number[]>([]);
   const [userTouchIndex, setUserTouchIndex] = useState(0);
   const [isNotAllowTouch, setIsNotAllowTouch] = useState(true);
@@ -18,7 +19,7 @@ export default function SequenceMemoryGame({ restart }: { restart: Function }) {
       return createRandomNumber();
     return randomNumber;
   }
-
+  // 响应盒子点击事件
   function touch(index: number) {
     highlightBox(index);
     if (!isNotAllowTouch) {
@@ -33,6 +34,7 @@ export default function SequenceMemoryGame({ restart }: { restart: Function }) {
       }
     }
   }
+  // 休眠
   async function sleep(ms: number) {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -40,7 +42,7 @@ export default function SequenceMemoryGame({ restart }: { restart: Function }) {
       }, ms);
     });
   }
-
+  // 用于每一关开局展示正确顺序
   const sequenceArrRef = useRef<number[]>([]);
   sequenceArrRef.current = sequenceArr;
   async function showSequence() {
@@ -67,7 +69,7 @@ export default function SequenceMemoryGame({ restart }: { restart: Function }) {
       targetBox.classList.remove(styles.highlight);
     }
   }
-
+  // 更改背景颜色
   const playgroundRef = useRef<HTMLDivElement | null>(null);
   async function whiteGlitter() {
     playgroundRef.current &&
@@ -81,7 +83,7 @@ export default function SequenceMemoryGame({ restart }: { restart: Function }) {
     await sleep(200);
     playgroundRef.current && playgroundRef.current.classList.remove(styles.red);
   }
-
+  // 过关判断
   function passThisTouch(index: number) {
     setUserTouchIndex(userTouchIndex + 1);
   }
@@ -101,10 +103,8 @@ export default function SequenceMemoryGame({ restart }: { restart: Function }) {
     showSequence();
   }, []);
 
-  useEffect(() => {
-    console.log('检查刷新');
-  });
-
+ 
+  // 各个游戏状态函数组件
   function Gaming() {
     return (
       <div>

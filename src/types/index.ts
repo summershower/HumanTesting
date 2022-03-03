@@ -3,14 +3,13 @@ import { FC } from 'React'
 export type IIcon = "HugeLighting" | "Lighting" | "Block" | "Aim" | "Number" | "Verbal" | "Chimp" | "Typing"
 
 export interface IPlaygroundProps {
-  intro: IPlaygroundIntroProps
+  intro?: IPlaygroundIntroProps
 }
 export interface IPlaygroundIntroProps {
   title: string,
   desc: string,
   icon: FC,
   link?: string,
-  hideBtn?: boolean,
   startGame?: Function
 }
 

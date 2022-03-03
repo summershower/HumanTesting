@@ -5,8 +5,7 @@ export default function SequenceMemory() {
   const playgroundIntro = {
     title: "连续记忆测试",
     desc: "请记住顺序",
-    icon: icons.Block,
-    hideBtn: true
+    icon: icons.Block
   }
   const gamesInfo = {
     pic: require("@/static/images/reactionTimeStatistics.png"),
@@ -29,7 +28,6 @@ export default function SequenceMemory() {
   }
   return (
     <div>
-      aaa
       <Playground intro={playgroundIntro}></Playground>
       <GamesInfo info={gamesInfo}></GamesInfo>
     </div>

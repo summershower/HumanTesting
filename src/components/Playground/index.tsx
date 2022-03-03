@@ -5,11 +5,12 @@ import { useLocation } from 'umi';
 import PlaygroundIntro from '@/components/Playground/PlaygroundIntro';
 import ReactionTimeGame from '@/components/Playground/Games/ReactionTimeGame';
 import SequenceMemoryGame from '@/components/Playground/Games/SequenceMemoryGame';
+import AimTrainerGame from '@/components/Playground/Games/AimTrainerGame';
 export default function Playground(props: IPlaygroundProps) {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const { pathname } = useLocation();
   const gamesRender = () => {
-    if (isGameStarted) {
+    if (isGameStarted || !props.intro) {
       switch (pathname) {
         case '/reactiontime':
           return <ReactionTimeGame></ReactionTimeGame>;
@@ -18,6 +19,10 @@ export default function Playground(props: IPlaygroundProps) {
             <SequenceMemoryGame
               restart={() => setIsGameStarted(false)}
             ></SequenceMemoryGame>
+          );
+        case '/aimtrainer':
+          return (
+            <AimTrainerGame></AimTrainerGame>
           );
       }
     } else {
@@ -32,5 +37,5 @@ export default function Playground(props: IPlaygroundProps) {
       );
     }
   };
-  return <div className={styles.playground}>{gamesRender()}</div>;
+  return <div className={styles.playground} style={{ cursor: !props.intro ? "pointer" : "default" }} onClick={()=>{!props.intro && setIsGameStarted(true)}}>{gamesRender()}</div>;
 }

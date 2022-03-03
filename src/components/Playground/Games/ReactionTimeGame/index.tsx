@@ -3,7 +3,7 @@ import styles from './index.less'
 import icons from '@/components/icons'
 
 export default function ReactionTimeGame() {
-  // 设定游戏状态
+  // 设定游戏状态常量
   const GUIDING = 'guiding'
   const WAITING = 'waiting'
   const COUNTDOWN = 'countdown'
@@ -60,7 +60,6 @@ export default function ReactionTimeGame() {
     setCurrentScore(0)
     setBgColor(BLUE)
   }
-
 
   // 进行成绩判定
   function judge() {
@@ -119,7 +118,7 @@ export default function ReactionTimeGame() {
         break;
     }
   }
-
+  // 获取最终成绩
   function getAveragedScore() {
     const sum = scoresRecord.reduce((total, current) => total + current, 0)
     return sum / 5
@@ -186,7 +185,7 @@ export default function ReactionTimeGame() {
     return (
       <div className={styles.finished} >
         <p className={styles.intro}>搞定了捏，成绩为：{getAveragedScore()}</p>
-        <button onClick={() => restart()}>重新测试</button>
+        <button onClick={restart}>重新测试</button>
       </div>
     )
   }
