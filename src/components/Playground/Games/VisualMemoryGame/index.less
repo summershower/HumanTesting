@@ -1,0 +1,91 @@
+@keyframes turnover {
+  0% {
+    transfrom:rotate3d(1,0,0,0deg) scale(1)
+  }
+  50% {
+    transfrom:rotate3d(1,0,0,180deg) scale(2)
+  }
+  100% {
+    transfrom:rotate3d(1,0,0,0deg) scale(1)
+
+  }
+}
+
+@keyframes shaking {
+  0% {
+    transform: translateX()
+  }
+  10% {}
+  20% {
+    transform: translateX()
+  }
+  30% {
+    transform: translateX()
+  }
+  40% {
+    transform: translateX()
+  }
+  50% {
+    transform: translateX()
+  }
+  60% {
+    transform: translateX()
+  }
+  70% {
+    transform: translateX()
+  }
+  80% {
+    transform: translateX()
+  }
+  90% {
+    transform: translateX()
+  }
+  100% {
+    transform: translateX()
+  }
+}
+
+.playground {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.box {
+  display: grid;
+  gap: 10px;
+  width: 574px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.eachBox {
+  background: rgba(0, 0, 0, .2);
+  box-sizing: border-box;
+  border-radius: 15px;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.whiteBox {
+  background: white;
+}
+
+.red {
+  background: rgba(219, 49, 49, 0.8) !important;
+}
+
+.highlight {
+  background: rgba(255, 255, 255, 0.8) !important;
+}
+
+.wrongBox {
+  background: rgba(0, 0, 0, .5);
+}
+
+.turnover {
+  // animation: turnover;
+  background: blue;
+}

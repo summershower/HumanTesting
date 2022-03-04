@@ -9,7 +9,7 @@ export default function SequenceMemoryGame({ restart }: { restart: Function }) {
   // 设定随机数组
   const [sequenceArr, setSequenceArr] = useState<number[]>([]);
   const [userTouchIndex, setUserTouchIndex] = useState(0);
-  const [isNotAllowTouch, setIsNotAllowTouch] = useState(true);
+  const [isAllowedTouch, setIsAllowedTouch] = useState(false);
   function createRandomNumber(): number {
     const randomNumber = Math.floor(Math.random() * 10);
     if (
@@ -22,7 +22,7 @@ export default function SequenceMemoryGame({ restart }: { restart: Function }) {
   // 响应盒子点击事件
   function touch(index: number) {
     highlightBox(index);
-    if (!isNotAllowTouch) {
+    if (isAllowedTouch) {
       if (index === sequenceArr[userTouchIndex]) {
         if (userTouchIndex === sequenceArr.length - 1) {
           passThisLevel();
@@ -46,16 +46,15 @@ export default function SequenceMemoryGame({ restart }: { restart: Function }) {
   const sequenceArrRef = useRef<number[]>([]);
   sequenceArrRef.current = sequenceArr;
   async function showSequence() {
-    if (!isNotAllowTouch) setIsNotAllowTouch(true);
+    if (isAllowedTouch) setIsAllowedTouch(false);
     await sleep(1200);
-    console.log(sequenceArrRef.current);
     sequenceArrRef.current.forEach((v, index) => {
       setTimeout(() => {
         highlightBox(v);
       }, index * 500);
       if (index === sequenceArrRef.current.length - 1) {
         setTimeout(() => {
-          setIsNotAllowTouch(false);
+          setIsAllowedTouch(true);
         }, sequenceArrRef.current.length * 500);
       }
     });
@@ -103,7 +102,7 @@ export default function SequenceMemoryGame({ restart }: { restart: Function }) {
     showSequence();
   }, []);
 
- 
+
   // 各个游戏状态函数组件
   function Gaming() {
     return (

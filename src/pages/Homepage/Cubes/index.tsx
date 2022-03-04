@@ -33,12 +33,12 @@ export default function Cubes() {
     icon: 'Chimp',
     title: '黑猩猩测试',
     intro: '测试你的视觉反应速度',
-    link: '/reactiontime'
+    link: '/chimptest'
   }, {
     icon: 'Block',
     title: '视觉暂留测试',
     intro: '测试你的视觉反应速度',
-    link: '/reactiontime'
+    link: '/visualmemory'
   }, {
     icon: 'Typing',
     title: '输入测试',

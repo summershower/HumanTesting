@@ -6,6 +6,9 @@ import PlaygroundIntro from '@/components/Playground/PlaygroundIntro';
 import ReactionTimeGame from '@/components/Playground/Games/ReactionTimeGame';
 import SequenceMemoryGame from '@/components/Playground/Games/SequenceMemoryGame';
 import AimTrainerGame from '@/components/Playground/Games/AimTrainerGame';
+import ChimpGame from '@/components/Playground/Games/ChimpGame';
+import VisualMemoryGame from '@/components/Playground/Games/VisualMemoryGame';
+
 export default function Playground(props: IPlaygroundProps) {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const { pathname } = useLocation();
@@ -24,6 +27,14 @@ export default function Playground(props: IPlaygroundProps) {
           return (
             <AimTrainerGame></AimTrainerGame>
           );
+        case '/chimptest':
+          return (
+            <ChimpGame restart={() => setIsGameStarted(false)}></ChimpGame>
+          );
+        case '/visualmemory':
+          return (
+            <VisualMemoryGame restart={() => setIsGameStarted(false)}></VisualMemoryGame>
+          );
       }
     } else {
       return (
@@ -37,5 +48,5 @@ export default function Playground(props: IPlaygroundProps) {
       );
     }
   };
-  return <div className={styles.playground} style={{ cursor: !props.intro ? "pointer" : "default" }} onClick={()=>{!props.intro && setIsGameStarted(true)}}>{gamesRender()}</div>;
+  return <div className={styles.playground} style={{ cursor: !props.intro ? "pointer" : "default" }} onClick={() => { !props.intro && setIsGameStarted(true) }}>{gamesRender()}</div>;
 }

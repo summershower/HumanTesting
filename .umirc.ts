@@ -13,6 +13,8 @@ export default defineConfig({
         { path: '/reactiontime', component: '@/pages/ReactionTime' },
         { path: '/sequencememory', component: '@/pages/SequenceMemory' },
         { path: '/aimtrainer', component: '@/pages/AimTrainer' },
+        { path: '/chimp', component: '@/pages/Chimp' },
+        { path: '/visualmemory', component: '@/pages/VisualMemory' },
       ]
     },
   ],
