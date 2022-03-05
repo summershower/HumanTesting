@@ -24519,7 +24519,7 @@
         ],
       }),
       V = e('YS25'),
-      H = { basename: '/' };
+      H = { basename: '/HumanTesting/' };
     window.routerBase && (H.basename = window.routerBase);
     var W = Object({ NODE_ENV: 'production' }).__IS_SERVER
         ? null
