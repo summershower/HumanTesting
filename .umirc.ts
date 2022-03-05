@@ -34,4 +34,5 @@ export default defineConfig({
     },
   ],
   publicPath: process.env.NODE_ENV === 'production' ? '/HumanTesting/' : '/',
+  outputPath: 'docs',
 });

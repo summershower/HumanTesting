@@ -49,7 +49,7 @@
     (e.o = function (r, n) {
       return Object.prototype.hasOwnProperty.call(r, n);
     }),
-    (e.p = '/'),
+    (e.p = '/HumanTesting/'),
     e((e.s = 0));
 })({
   '++zV': function (r, n, e) {
