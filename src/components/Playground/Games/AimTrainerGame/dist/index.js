@@ -151,7 +151,10 @@ function AimTrainerGame() {
     'div',
     { className: index_less_1['default'].playground + ' playground onlyPC' },
     render(),
-    React.createElement('audio', { ref: audioRef, src: '/public/shoot.mp3' }),
+    React.createElement('audio', {
+      ref: audioRef,
+      src: '/public/audios/shoot.mp3',
+    }),
   );
 }
 exports['default'] = AimTrainerGame;

@@ -123,7 +123,7 @@ export default function AimTrainerGame() {
   return (
     <div className={`${styles.playground} playground onlyPC`}>
       {render()}
-      <audio ref={audioRef} src="/public/shoot.mp3"></audio>
+      <audio ref={audioRef} src="/public/audios/shoot.mp3"></audio>
     </div>
   );
 }
