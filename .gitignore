@@ -8,10 +8,11 @@
 /package-lock.json
 
 # production
-/dist
+# /dist
 
 # misc
 .DS_Store
+.vscode
 
 # umi
 /src/.umi

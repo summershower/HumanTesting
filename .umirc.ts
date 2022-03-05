@@ -33,5 +33,5 @@ export default defineConfig({
       to: 'public/favicon.ico',
     },
   ],
-  outputPath: 'docs',
+  base: '/dist',
 });
