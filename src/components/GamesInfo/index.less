@@ -2,15 +2,15 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 30px;
-  height: 500px;
   box-sizing: border-box;
   margin: 30px auto;
+  min-height: 500px;
 }
 
 @media (min-width: 768px) {
   .gamesInfo {
     max-width: 1200px;
-    padding: 0 30px;
+    min-width: 1000px;
   }
 }
 
@@ -20,7 +20,7 @@
     grid-column-gap: 0;
     grid-row-gap: 30px;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
-    // padding: 30px;
+    grid-template-rows: repeat(2, auto);
+    padding: 0 20px;
   }
 }

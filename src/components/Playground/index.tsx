@@ -8,6 +8,9 @@ import SequenceMemoryGame from '@/components/Playground/Games/SequenceMemoryGame
 import AimTrainerGame from '@/components/Playground/Games/AimTrainerGame';
 import ChimpGame from '@/components/Playground/Games/ChimpGame';
 import VisualMemoryGame from '@/components/Playground/Games/VisualMemoryGame';
+import NumberGame from '@/components/Playground/Games/NumberGame';
+import VerbalGame from '@/components/Playground/Games/VerbalGame';
+import TypingGame from '@/components/Playground/Games/TypingGame';
 
 export default function Playground(props: IPlaygroundProps) {
   const [isGameStarted, setIsGameStarted] = useState(false);
@@ -24,16 +27,28 @@ export default function Playground(props: IPlaygroundProps) {
             ></SequenceMemoryGame>
           );
         case '/aimtrainer':
+          return <AimTrainerGame></AimTrainerGame>;
+        case '/number':
           return (
-            <AimTrainerGame></AimTrainerGame>
+            <NumberGame restart={() => setIsGameStarted(false)}></NumberGame>
           );
-        case '/chimptest':
+        case '/verbal':
+          return (
+            <VerbalGame restart={() => setIsGameStarted(false)}></VerbalGame>
+          );
+        case '/chimp':
           return (
             <ChimpGame restart={() => setIsGameStarted(false)}></ChimpGame>
           );
         case '/visualmemory':
           return (
-            <VisualMemoryGame restart={() => setIsGameStarted(false)}></VisualMemoryGame>
+            <VisualMemoryGame
+              restart={() => setIsGameStarted(false)}
+            ></VisualMemoryGame>
+          );
+        case '/typing':
+          return (
+            <TypingGame restart={() => setIsGameStarted(false)}></TypingGame>
           );
       }
     } else {
@@ -48,5 +63,15 @@ export default function Playground(props: IPlaygroundProps) {
       );
     }
   };
-  return <div className={styles.playground} style={{ cursor: !props.intro ? "pointer" : "default" }} onClick={() => { !props.intro && setIsGameStarted(true) }}>{gamesRender()}</div>;
+  return (
+    <div
+      className={styles.playground}
+      style={{ cursor: !props.intro ? 'pointer' : 'default' }}
+      onClick={() => {
+        !props.intro && setIsGameStarted(true);
+      }}
+    >
+      {gamesRender()}
+    </div>
+  );
 }

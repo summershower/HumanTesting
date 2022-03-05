@@ -1,5 +1,57 @@
 :root {
     --themeBlue: rgb(43, 135, 209);
+    --startBtnBg: rgb(255, 209, 84);
+}
+
+@media (min-width:768px) {
+    .playground {
+        height: 568px;
+        width: 100%;
+    }
+}
+
+@media (max-width:768px) {
+    .playground {
+        height: 75vh;
+        width: 100%;
+    }
+    .onlyPC {
+        position: relative;
+        pointer-events: none;
+    }
+    .onlyPC::before {
+        position: absolute;
+        content: "";
+        text-align: left;
+        display: block;
+        z-index: 3;
+        width: 100vw;
+        height: 75vh;
+        left: 0;
+        top: 0;
+        color: #eee;
+        background: var(--themeBlue);
+        pointer-events: none;
+        box-sizing: border-box;
+        padding: 20px;
+        padding-top: 30vh;
+    }
+    .onlyPC::after {
+        content: "提示：这项测试暂时只提供PC端和平板端使用，请更换您的设备。";
+        position: absolute;
+        font-size: 16px;
+        z-index: 4;
+        width: 85%;
+        padding: 15px;
+        box-sizing: border-box;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: rgb(255, 204, 153);
+        border-radius: 15px;
+        color: #333;
+        text-align: left;
+    }
 }
 
 body {
@@ -18,4 +70,20 @@ a {
 
 a:hover {
     color: black;
+}
+
+.tryAgainBtn {
+    background: rgba(255, 255, 255, .6);
+    transition: all .3s ease;
+    color: #111;
+    border: none;
+    cursor: pointer;
+    width: 180px;
+    height: 60px;
+    border-radius: 10px;
+    font-size: 22px;
+}
+
+.tryAgainBtn:hover {
+    background: white;
 }

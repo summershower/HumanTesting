@@ -64,7 +64,7 @@ export default function SequenceMemoryGame({ restart }: { restart: Function }) {
     const targetBox = document.querySelector('#box' + index);
     if (targetBox) {
       targetBox.classList.add(styles.highlight);
-      await sleep(200);
+      await sleep(300);
       targetBox.classList.remove(styles.highlight);
     }
   }
@@ -72,14 +72,14 @@ export default function SequenceMemoryGame({ restart }: { restart: Function }) {
   const playgroundRef = useRef<HTMLDivElement | null>(null);
   async function whiteGlitter() {
     playgroundRef.current &&
-      playgroundRef.current.classList.add(styles.highlight);
+      playgroundRef.current.classList.add(styles.shallowHighlight);
     await sleep(200);
     playgroundRef.current &&
-      playgroundRef.current.classList.remove(styles.highlight);
+      playgroundRef.current.classList.remove(styles.shallowHighlight);
   }
   async function redGlitter() {
     playgroundRef.current && playgroundRef.current.classList.add(styles.red);
-    await sleep(200);
+    await sleep(300);
     playgroundRef.current && playgroundRef.current.classList.remove(styles.red);
   }
   // 过关判断
@@ -102,12 +102,13 @@ export default function SequenceMemoryGame({ restart }: { restart: Function }) {
     showSequence();
   }, []);
 
-
   // 各个游戏状态函数组件
   function Gaming() {
     return (
-      <div>
-        <h2>当前等级：{sequenceArr.length}</h2>
+      <div className={styles.gaming}>
+        <h2>
+          当前等级：<i>{sequenceArr.length}</i>
+        </h2>
         <div className={styles.box}>
           {new Array(9).fill(null).map((v, index) => (
             <div
@@ -123,10 +124,11 @@ export default function SequenceMemoryGame({ restart }: { restart: Function }) {
   }
   function Failed() {
     return (
-      <div>
-        <h1>分数是：{sequenceArr.length}</h1>
-        <p>寄了</p>
-        <button onClick={() => restart()}>重开</button>
+      <div className={styles.failed}>
+        <h1>等级：{sequenceArr.length}</h1>
+        <button className="tryAgainBtn" onClick={() => restart()}>
+          再试一次
+        </button>
       </div>
     );
   }
@@ -152,7 +154,7 @@ export default function SequenceMemoryGame({ restart }: { restart: Function }) {
   }
 
   return (
-    <div className={styles.playground} ref={playgroundRef}>
+    <div className={`${styles.playground} playground`} ref={playgroundRef}>
       {render()}
     </div>
   );

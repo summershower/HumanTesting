@@ -1,14 +1,14 @@
 import Playground from '@/components/Playground';
 import GamesInfo from '@/components/GamesInfo';
 import icons from '@/components/Icons';
-export default function VisualMemory() {
+export default function Typing() {
   const playgroundIntro = {
-    title: '瞬时视觉记忆',
+    title: '输入速度',
     desc: '请记住顺序',
-    icon: icons.Block,
+    icon: icons.Typing,
   };
   const gamesInfo = {
-    pic: require('@/static/images/statistics/visualmemory.png'),
+    pic: require('@/static/images/statistics/typing.png'),
     desc: `这是一个简单的工具来衡量你的反应时间
 
     根据目前收集的数据，平均（中位数）反应时间为273毫秒。

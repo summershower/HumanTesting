@@ -1,7 +1,36 @@
 .gamesIntro {
   width: 100%;
   background: white;
-  box-shadow: 2px 2px 30px rgba(0, 0, 0, .05);
-  border-radius: 5px;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+  padding: 20px 30px;
   box-sizing: border-box;
+
+  h2 {
+    font-weight: 550;
+    font-size: 26px;
+  }
+
+  p {
+    font-size: 18px;
+    color: #333;
+    line-height: 32px;
+    white-space: pre-wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .gamesIntro {
+    padding: 20px 20px 0px;
+
+    h2 {
+      font-size: 24px;
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
 }

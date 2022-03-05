@@ -1,109 +1,105 @@
-import styles from './index.less'
-import { useEffect, useState, useRef } from 'react'
+import styles from './index.less';
+import { useEffect, useState, useRef } from 'react';
 export default function VisualMemoryGame({ restart }: { restart: Function }) {
   // 设置游戏状态
-  const GAMING = 'gaming'
-  const RESULT = 'result'
-  const [state, setState] = useState(GAMING)
+  const GAMING = 'gaming';
+  const RESULT = 'result';
+  const [state, setState] = useState(GAMING);
 
   // 计算盒子行列数相关数据
-  const [n, setN] = useState(3)
-  const [boxQuantity, setBoxQuantity] = useState(3)
-  const [maxBoxQuantity, setMaxBoxQuantity] = useState(4)
-  const [diffValue, setDiffValue] = useState(3)
-  const [addDiffTimesRecord, setAddDiffTimesRecord] = useState([0, 0, 0])
+  const [n, setN] = useState(3);
+  const [boxQuantity, setBoxQuantity] = useState(3);
+  const [maxBoxQuantity, setMaxBoxQuantity] = useState(4);
+  const [diffValue, setDiffValue] = useState(3);
+  const [addDiffTimesRecord, setAddDiffTimesRecord] = useState([0, 0, 0]);
 
   // 生命值和当前关卡相关信息
-  const [failedQuantity, setFailedQuantity] = useState(0)
-  const [lifeQuantity, setLifeQuantity] = useState(3)
+  const [failedQuantity, setFailedQuantity] = useState(0);
+  const [lifeQuantity, setLifeQuantity] = useState(3);
 
-  const [userClickedArr, setUserClickedArr] = useState<number[]>([])
-  const [userClickedRightArr, setUserClickedRightArr] = useState<number[]>([])
+  const [userClickedArr, setUserClickedArr] = useState<number[]>([]);
+  const [userClickedRightArr, setUserClickedRightArr] = useState<number[]>([]);
 
-  const [isAllowedHandle, setIsAllowedHandle] = useState(false)
+  const [isAllowedHandle, setIsAllowedHandle] = useState(false);
 
-  const [randomNumberArr, setRandomNumberArr] = useState<number[]>([])
-
+  const [randomNumberArr, setRandomNumberArr] = useState<number[]>([]);
 
   async function handleClick(index: number) {
-
-    if (!isAllowedHandle) return highlight(index)
-    if (userClickedArr.includes(index)) return
+    if (!isAllowedHandle) return highlight(index);
+    if (userClickedArr.includes(index)) return;
 
     if (randomNumberArr.includes(index)) {
       if (userClickedRightArr.length === boxQuantity - 1) {
-        whiteGlitter()
-        await sleep(500)
-        nextLevel()
+        whiteGlitter();
+        await sleep(500);
+        nextLevel();
       } else {
-        setUserClickedArr([...userClickedArr, index])
-        setUserClickedRightArr([...userClickedRightArr, index])
+        setUserClickedArr([...userClickedArr, index]);
+        setUserClickedRightArr([...userClickedRightArr, index]);
       }
     } else {
       if (failedQuantity === 2) {
         if (lifeQuantity === 1) {
-          setState(RESULT)
+          setState(RESULT);
         } else {
-          setLifeQuantity(lifeQuantity - 1)
-          redGlitter()
-          retry()
+          setLifeQuantity(lifeQuantity - 1);
+          redGlitter();
+          retry();
         }
       } else {
-        setFailedQuantity(failedQuantity + 1)
-        setUserClickedArr([...userClickedArr, index])
+        setFailedQuantity(failedQuantity + 1);
+        setUserClickedArr([...userClickedArr, index]);
       }
-
     }
-
-
   }
 
-  const arrRef = useRef<number[]>([])
+  const arrRef = useRef<number[]>([]);
 
-  arrRef.current = randomNumberArr
+  arrRef.current = randomNumberArr;
 
   async function showTargetBox() {
-    await sleep(1200)
-    console.log(arrRef.current, '开香槟咯')
-    arrRef.current && arrRef.current.forEach(v => {
-      console.log(v, '进去了吗')
-      turnover(v)
-    })
-    await sleep(200)
-    setIsAllowedHandle(true)
+    await sleep(1200);
+    arrRef.current &&
+      arrRef.current.forEach((v) => {
+        turnover(v);
+      });
+    await sleep(200);
+    setIsAllowedHandle(true);
   }
 
   function retry() {
-    if (isAllowedHandle) setIsAllowedHandle(false)
-    setFailedQuantity(0)
-    setUserClickedArr([])
-    setUserClickedRightArr([])
-    createRandomNumberArr()
+    if (isAllowedHandle) setIsAllowedHandle(false);
+    setFailedQuantity(0);
+    setUserClickedArr([]);
+    setUserClickedRightArr([]);
+    createRandomNumberArr();
   }
 
   function nextLevel() {
-    setFailedQuantity(0)
-    setUserClickedArr([])
-    setUserClickedRightArr([])
-    setBoxQuantity(boxQuantity + 1)
+    setFailedQuantity(0);
+    setUserClickedArr([]);
+    setUserClickedRightArr([]);
+    setBoxQuantity(boxQuantity + 1);
     if (boxQuantity + 1 > maxBoxQuantity) {
-      if (addDiffTimesRecord[addDiffTimesRecord.length - 1] === addDiffTimesRecord.length - 1) {
-        const arr = addDiffTimesRecord
-        arr[arr.length] = 1
-        setAddDiffTimesRecord(arr)
-        setDiffValue(diffValue + 2)
-        setMaxBoxQuantity(maxBoxQuantity + diffValue + 2)
+      if (
+        addDiffTimesRecord[addDiffTimesRecord.length - 1] ===
+        addDiffTimesRecord.length - 1
+      ) {
+        const arr = addDiffTimesRecord;
+        arr[arr.length] = 1;
+        setAddDiffTimesRecord(arr);
+        setDiffValue(diffValue + 2);
+        setMaxBoxQuantity(maxBoxQuantity + diffValue + 2);
       } else {
-        const arr = addDiffTimesRecord
-        arr[arr.length - 1] = arr[arr.length - 1] + 1
-        setAddDiffTimesRecord(arr)
-        setMaxBoxQuantity(maxBoxQuantity + diffValue)
+        const arr = addDiffTimesRecord;
+        arr[arr.length - 1] = arr[arr.length - 1] + 1;
+        setAddDiffTimesRecord(arr);
+        setMaxBoxQuantity(maxBoxQuantity + diffValue);
       }
-      setN(n + 1)
+      setN(n + 1);
     }
-    createRandomNumberArr(boxQuantity + 1)
-    if (isAllowedHandle) setIsAllowedHandle(false)
-
+    createRandomNumberArr(boxQuantity + 1);
+    if (isAllowedHandle) setIsAllowedHandle(false);
   }
 
   // 休眠
@@ -116,7 +112,6 @@ export default function VisualMemoryGame({ restart }: { restart: Function }) {
   }
   // 更改背景颜色
   const playgroundRef = useRef<HTMLDivElement | null>(null);
-
   async function whiteGlitter() {
     playgroundRef.current &&
       playgroundRef.current.classList.add(styles.highlight);
@@ -141,10 +136,9 @@ export default function VisualMemoryGame({ restart }: { restart: Function }) {
   }
 
   async function turnover(index: number) {
-    console.log(index, '嘿嘿')
     await sleep(1);
     const targetBox = document.querySelector('#box' + index);
-    console.log(targetBox)
+    console.log(targetBox);
     if (targetBox) {
       targetBox.classList.add(styles.turnover);
       await sleep(200);
@@ -161,46 +155,61 @@ export default function VisualMemoryGame({ restart }: { restart: Function }) {
     }
   }
 
-
   function createRandomNumberArr(quantity = boxQuantity) {
-    console.log('11')
-    const totalIndex = (n * n) - 1
-    const arr: number[] = []
+    console.log('11');
+    const totalIndex = n * n - 1;
+    const arr: number[] = [];
     while (arr.length < quantity) {
-      const randomNumber = Math.round(Math.random() * totalIndex)
+      const randomNumber = Math.round(Math.random() * totalIndex);
       if (arr.includes(randomNumber)) {
-        continue
+        continue;
       } else {
-        arr.push(randomNumber)
+        arr.push(randomNumber);
       }
     }
-    setRandomNumberArr(arr)
-    showTargetBox()
-
+    setRandomNumberArr(arr);
+    showTargetBox();
   }
   useEffect(() => {
-    createRandomNumberArr()
-  }, [])
-
-
+    createRandomNumberArr();
+  }, []);
 
   function classNameComputed(index: number) {
-    return `${styles.eachBox} ${userClickedArr.includes(index) ? randomNumberArr.includes(index) ? styles.whiteBox : styles.wrongBox : ''} }`
+    return `${styles.eachBox} ${
+      userClickedArr.includes(index)
+        ? randomNumberArr.includes(index)
+          ? styles.whiteBox
+          : styles.wrongBox
+        : ''
+    } }`;
   }
 
   function Gaming() {
-    console.log('shauxinel')
+    console.log('shauxinel');
     return (
-      <div style={{ height: "100%", width: "100%" }}>
+      <div style={{ height: '100%', width: '100%' }}>
         <div className={styles.gameStatus}>
           当前关卡:{boxQuantity - 2}
           生命值:{lifeQuantity}
         </div>
-        <div className={styles.box} style={{ gridTemplateRows: `repeat(${n},1fr)`, gridTemplateColumns: `repeat(${n},1fr)` }}>
-          {new Array(n * n).fill(null).map((v, index) => <div className={classNameComputed(index)} key={index} id={`box${index}`} onClick={() => handleClick(index)}></div>)}
+        <div
+          className={styles.box}
+          style={{
+            gridTemplateRows: `repeat(${n},1fr)`,
+            gridTemplateColumns: `repeat(${n},1fr)`,
+          }}
+        >
+          {new Array(n * n).fill(null).map((v, index) => (
+            <div
+              className={classNameComputed(index)}
+              key={index}
+              id={`box${index}`}
+              onClick={() => handleClick(index)}
+            ></div>
+          ))}
         </div>
       </div>
-    )
+    );
   }
   function Result() {
     return (
@@ -208,14 +217,12 @@ export default function VisualMemoryGame({ restart }: { restart: Function }) {
         寄了弟弟
         <button onClick={() => restart()}>重开</button>
       </div>
-    )
+    );
   }
-
 
   return (
     <div className={styles.playground} ref={playgroundRef}>
-
       {state === GAMING ? <Gaming></Gaming> : <Result></Result>}
     </div>
-  )
+  );
 }

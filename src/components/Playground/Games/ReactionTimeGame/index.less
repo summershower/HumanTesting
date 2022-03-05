@@ -2,39 +2,99 @@
   from {
     transform: translateY(-20px);
   }
+
   to {
     transform: translateY(0px);
   }
 }
 
 .playground {
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
-.guide,
-.waiting
-.processing,
-.success,
-.overtime
-.failed {
   cursor: pointer;
 }
 
-.guide {
-  .title,
-  .intro {
-    color: white;
+.guide,
+.waiting,
+.success,
+.overtime,
+.countdown,
+.failed {
+  cursor: pointer;
+  height: 100%;
+  color: white;
+}
+
+.waiting,
+.countdown,
+.success,
+.failed,
+.overtime {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 46px;
+
+  svg {
+    width: 80px;
+    margin: 0 auto;
   }
+
+  .startIntro {
+    font-size: 24px;
+  }
+}
+
+.guide {
+  svg {
+    margin-top: 50px;
+    animation: dropDown 0.4s ease;
+  }
+
   .title {
     font-size: 64px;
-    animation: dropDown 0.5s ease-in-out;
+    color: white;
+    animation: dropDown 0.5s ease;
   }
+
   .intro {
     font-size: 28px;
-    animation: dropDown 0.6s ease-in-out;
+    animation: dropDown 0.6s ease;
   }
-  svg {
-    animation: dropDown 0.4s ease-in-out;
+
+  .startIntro {
+    font-size: 24px;
+  }
+}
+
+.score {
+  margin-top: 50px;
+  font-size: 64px;
+}
+
+@media (max-width: 768px) {
+  .guide {
+    padding: 20px;
+    box-sizing: border-box;
+
+    svg {
+      margin-top: 70px;
+      animation: dropDown 0.4s ease;
+    }
+
+    .title {
+      font-size: 44px;
+      color: white;
+      animation: dropDown 0.5s ease;
+    }
+
+    .intro {
+      margin-top: 30px;
+      font-size: 22px;
+      animation: dropDown 0.6s ease;
+    }
+
+    .startIntro {
+      margin-top: 40px;
+      font-size: 16px;
+    }
   }
 }

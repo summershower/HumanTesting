@@ -1,8 +1,39 @@
 .gamesStatistics {
+  position: relative;
   width: 100%;
   height: 100%;
   background: white;
-  box-shadow: 2px 2px 30px rgba(0, 0, 0, .05);
-  border-radius: 5px;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
   box-sizing: border-box;
+  padding: 20px 30px;
+
+  h2 {
+    font-weight: 550;
+    font-size: 26px;
+  }
+
+  img {
+    position: absolute;
+    left: 50%;
+    top: 53%;
+    transform: translate(-50%, -50%);
+    height: 75%;
+  }
+}
+
+@media (max-width: 768px) {
+  .gamesStatistics {
+    height: 350px;
+    padding: 20px;
+
+    h2 {
+      font-size: 24px;
+    }
+
+    img {
+      margin-top: 10px;
+      height: 70%;
+    }
+  }
 }
