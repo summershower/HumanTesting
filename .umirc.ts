@@ -33,5 +33,5 @@ export default defineConfig({
       to: 'public/favicon.ico',
     },
   ],
-  base: '/docs',
+  publicPath: process.env.NODE_ENV === 'production' ? '/HumanTesting/' : '/',
 });
