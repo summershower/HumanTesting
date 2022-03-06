@@ -2,61 +2,45 @@
   0% {
     transfrom: rotate3d(1, 0, 0, 0deg) scale(1);
   }
-
   50% {
     transfrom: rotate3d(1, 0, 0, 180deg) scale(2);
   }
-
   100% {
     transfrom: rotate3d(1, 0, 0, 0deg) scale(1);
   }
 }
-
 @keyframes shaking {
   0% {
     transform: translateX();
   }
-
-  10% {
-  }
-
   20% {
     transform: translateX();
   }
-
   30% {
     transform: translateX();
   }
-
   40% {
     transform: translateX();
   }
-
   50% {
     transform: translateX();
   }
-
   60% {
     transform: translateX();
   }
-
   70% {
     transform: translateX();
   }
-
   80% {
     transform: translateX();
   }
-
   90% {
     transform: translateX();
   }
-
   100% {
     transform: translateX();
   }
 }
-
 .playground {
   width: 100%;
   height: 100%;
@@ -64,38 +48,31 @@
   padding-top: 30px;
   box-sizing: border-box;
 }
-
 .gameStatus {
   color: rgba(255, 255, 255, 0.6);
   font-size: 26px;
-
-  i {
-    font-style: normal;
-    color: white;
-    font-weight: 550;
-    margin-left: 5px;
-    font-size: 32px;
-
-    &:first-of-type {
-      margin-right: 20px;
-    }
-  }
-
-  svg {
-    width: 25px;
-    margin-right: 7px;
-    transform: translateY(2px);
-  }
-
-  .alive {
-    color: white !important;
-
-    svg {
-      color: white !important;
-    }
-  }
 }
-
+.gameStatus i {
+  font-style: normal;
+  color: white;
+  font-weight: 550;
+  margin-left: 5px;
+  font-size: 32px;
+}
+.gameStatus i:first-of-type {
+  margin-right: 20px;
+}
+.gameStatus svg {
+  width: 25px;
+  margin-right: 7px;
+  transform: translateY(2px);
+}
+.gameStatus .alive {
+  color: white !important;
+}
+.gameStatus .alive svg {
+  color: white !important;
+}
 .box {
   display: grid;
   gap: 10px;
@@ -105,7 +82,6 @@
   padding: 30px;
   box-sizing: border-box;
 }
-
 .eachBox {
   background: rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
@@ -113,28 +89,21 @@
   transition: all 0.3 ease;
   cursor: pointer;
 }
-
 .whiteBox {
   background: white;
 }
-
 .red {
   background: rgba(219, 49, 49, 0.8) !important;
 }
-
 .highlight {
   background: rgba(255, 255, 255, 0.8) !important;
 }
-
 .wrongBox {
   background: rgba(0, 0, 0, 0.5);
 }
-
 .turnover {
-  // animation: turnover;
   background: blue;
 }
-
 .result {
   width: 100%;
   height: 100%;
@@ -142,19 +111,16 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-
-  svg {
-    margin-top: 50px;
-  }
-
-  h1 {
-    font-size: 56px;
-    color: white;
-    margin-top: 50px;
-    margin-bottom: 70px;
-  }
 }
-
+.result svg {
+  margin-top: 50px;
+}
+.result h1 {
+  font-size: 56px;
+  color: white;
+  margin-top: 50px;
+  margin-bottom: 70px;
+}
 @media (max-width: 768px) {
   .gameStatus {
     margin-top: 15vw;
@@ -164,9 +130,7 @@
     height: 100vw;
     margin-top: 8vw;
   }
-  .result {
-    svg {
-      margin-top: 30vw;
-    }
+  .result svg {
+    margin-top: 30vw;
   }
 }

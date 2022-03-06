@@ -1,12 +1,5 @@
 import styles from './index.less';
-import {
-  useState,
-  useRef,
-  useEffect,
-  KeyboardEventHandler,
-  EventHandler,
-  KeyboardEvent,
-} from 'react';
+import { useState, useRef, useEffect, KeyboardEvent } from 'react';
 export default function NumberGame({ restart }: { restart: Function }) {
   const SHOWING = 'showing';
   const TYPING = 'typing';
@@ -20,7 +13,7 @@ export default function NumberGame({ restart }: { restart: Function }) {
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const progressFluidRef = (node: HTMLDivElement | null) =>
-    node && setTimeout(() => node.classList.add(styles.zero), 1);
+    node && setTimeout(() => node.classList.add(styles.zero), 100);
   const inputDomRef = useRef<HTMLInputElement | null>();
   const inputRef = (node: HTMLInputElement | null) => {
     if (node) {
@@ -72,9 +65,8 @@ export default function NumberGame({ restart }: { restart: Function }) {
     console.log(num);
   });
   function Showing() {
-    console.log('刷新了啊');
     return (
-      <div>
+      <div className={styles.progress}>
         <h1>{num}</h1>
         <div className={styles.progressBar}>
           <div
@@ -90,7 +82,9 @@ export default function NumberGame({ restart }: { restart: Function }) {
   }
   function Typing() {
     return (
-      <div>
+      <div className={styles.typing}>
+        <h1>请输入你看到的数字：</h1>
+        <h2>可以按Enter回车键提交</h2>
         <input
           className={styles.input}
           type="text"
@@ -98,7 +92,9 @@ export default function NumberGame({ restart }: { restart: Function }) {
           ref={inputRef}
           onKeyUp={handleKeyup}
         />
-        <button onClick={submit}>submit</button>
+        <button onClick={submit} className={styles.nextBtn}>
+          提交
+        </button>
       </div>
     );
   }
@@ -113,18 +109,27 @@ export default function NumberGame({ restart }: { restart: Function }) {
       };
     }, []);
     return (
-      <div>
-        <h1> 宁彳亍啦</h1>
-        <button onClick={nextLevel}>next</button>
+      <div className={styles.passed}>
+        <h3>正确答案：</h3>
+        <h2>{num}</h2>
+        <h3>你的答案：</h3>
+        <h2>{num}</h2>
+        <h1>当前等级：{num.length}</h1>
+        <button onClick={nextLevel}>继续</button>
       </div>
     );
   }
   function Failed() {
     return (
-      <div>
-        <h1>菜狗</h1>
-        <h2>{num.length}</h2>
-        <button onClick={() => restart()}>remake</button>
+      <div className={styles.failed}>
+        <h3>正确答案：</h3>
+        <h2>{num}</h2>
+        <h3>你的答案：</h3>
+        <h2>{num}</h2>
+        <h1>当前等级：{num.length}</h1>
+        <button className="tryAgainBtn" onClick={() => restart()}>
+          重新开始
+        </button>
       </div>
     );
   }
@@ -142,5 +147,5 @@ export default function NumberGame({ restart }: { restart: Function }) {
         return null;
     }
   }
-  return <div>{render()}</div>;
+  return <div className={`playground`}>{render()}</div>;
 }

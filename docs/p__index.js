@@ -220,6 +220,21 @@
           }),
         });
       }
+      function f() {
+        return Object(r['jsx'])('svg', {
+          'aria-hidden': 'true',
+          focusable: 'false',
+          'data-prefix': 'fas',
+          'data-icon': 'heart',
+          role: 'img',
+          xmlns: 'http://www.w3.org/2000/svg',
+          viewBox: '0 0 512 512',
+          children: Object(r['jsx'])('path', {
+            fill: 'currentColor',
+            d: 'M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z',
+          }),
+        });
+      }
       t['a'] = {
         HugeLighting: c,
         Lighting: i,
@@ -230,6 +245,7 @@
         Chimp: s,
         Typing: u,
         Clock: d,
+        Heart: f,
       };
     },
     '55Ip': function (e, t, n) {
@@ -253,15 +269,15 @@
         d = function (e, t) {
           return 'string' === typeof e ? Object(o['c'])(e, null, null, t) : e;
         },
-        h = function (e) {
+        f = function (e) {
           return e;
         },
-        f = l.a.forwardRef;
+        h = l.a.forwardRef;
       function j(e) {
         return !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
       }
-      'undefined' === typeof f && (f = h);
-      var v = f(function (e, t) {
+      'undefined' === typeof h && (h = f);
+      var v = h(function (e, t) {
         var n = e.innerRef,
           r = e.navigate,
           c = e.onClick,
@@ -281,9 +297,9 @@
                 (e.preventDefault(), r());
             },
           });
-        return (s.ref = (h !== f && t) || n), l.a.createElement('a', s);
+        return (s.ref = (f !== h && t) || n), l.a.createElement('a', s);
       });
-      var x = f(function (e, t) {
+      var x = h(function (e, t) {
           var n = e.component,
             c = void 0 === n ? v : n,
             i = e.replace,
@@ -304,7 +320,7 @@
                 },
               });
             return (
-              h !== f ? (v.ref = t || j) : (v.innerRef = j),
+              f !== h ? (v.ref = t || j) : (v.innerRef = j),
               l.a.createElement(c, v)
             );
           });
@@ -328,8 +344,8 @@
           c = void 0 === n ? 'page' : n,
           i = e.activeClassName,
           o = void 0 === i ? 'active' : i,
-          h = e.activeStyle,
-          f = e.className,
+          f = e.activeStyle,
+          h = e.className,
           j = e.exact,
           v = e.isActive,
           g = e.location,
@@ -367,8 +383,8 @@
                 })
               : null,
             y = !!(v ? v(Z, n) : Z),
-            B = y ? p(f, o) : f,
-            N = y ? Object(C['a'])({}, m, {}, h) : m,
+            B = y ? p(h, o) : h,
+            N = y ? Object(C['a'])({}, m, {}, f) : m,
             _ = Object(C['a'])(
               {
                 'aria-current': (y && c) || null,

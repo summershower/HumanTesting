@@ -6,14 +6,12 @@
   margin: 30px auto;
   min-height: 500px;
 }
-
 @media (min-width: 768px) {
   .gamesInfo {
     max-width: 1000px;
     min-width: 1000px;
   }
 }
-
 @media (max-width: 768px) {
   .gamesInfo {
     height: fit-content;

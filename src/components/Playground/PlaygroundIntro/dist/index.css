@@ -9,21 +9,21 @@
 .container svg {
   margin-top: 60px;
 }
-.title,
-.intro {
+.container .title,
+.container .intro {
   color: white;
 }
-.title {
+.container .title {
   font-size: 64px;
   animation: dropDown 0.5s ease;
   margin-top: 30px;
 }
-.intro {
+.container .intro {
   font-size: 28px;
   animation: dropDown 0.6s ease;
   color: rgba(255, 255, 255, 0.8);
 }
-svg {
+.container svg {
   animation: dropDown 0.4s ease;
 }
 .startBtn {

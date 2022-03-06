@@ -23294,9 +23294,12 @@
     var rt = n('TBcU'),
       ot = n.n(rt),
       it = () =>
-        Object(K['jsx'])('div', {
+        Object(K['jsxs'])('div', {
           className: ot.a.loading,
-          children: Object(K['jsx'])('img', { src: n('LwEf'), alt: 'loading' }),
+          children: [
+            Object(K['jsx'])('img', { src: n('LwEf'), alt: 'loading' }),
+            Object(K['jsx'])('p', { children: '\u52a0\u8f7d\u4e2d...' }),
+          ],
         });
     function at() {
       var e = [

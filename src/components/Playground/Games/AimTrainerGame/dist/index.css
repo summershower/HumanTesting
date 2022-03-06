@@ -1,7 +1,6 @@
 .playground {
   cursor: default;
 }
-
 .battlefield {
   position: relative;
   width: 100%;
@@ -11,50 +10,42 @@
   background: transparent;
   margin: 0 auto;
   overflow: hidden;
-
-  h2 {
-    margin-top: 10px;
-    color: rgba(255, 255, 255, 0.6);
-    font-weight: 400;
-
-    i {
-      font-style: normal;
-      color: white;
-      font-weight: 550;
-      font-size: 28px;
-      margin-left: 10px;
-      margin-right: 5px;
-    }
-  }
 }
-
+.battlefield h2 {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+}
+.battlefield h2 i {
+  font-style: normal;
+  color: white;
+  font-weight: 550;
+  font-size: 28px;
+  margin-left: 10px;
+  margin-right: 5px;
+}
 .guiding {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
-
-  h1 {
-    color: white;
-    font-size: 64px;
-  }
-
-  .icon {
-    margin-bottom: 30px;
-    cursor: pointer;
-  }
-
-  p {
-    font-size: 20px;
-    margin-top: 20px;
-
-    &:last-child {
-      margin-top: 0;
-    }
-  }
 }
-
+.guiding h1 {
+  color: white;
+  font-size: 64px;
+}
+.guiding .icon {
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+.guiding p {
+  font-size: 20px;
+  margin-top: 20px;
+}
+.guiding p:last-child {
+  margin-top: 0;
+}
 .result {
   display: flex;
   flex-direction: column;
@@ -62,20 +53,17 @@
   align-items: center;
   height: 100%;
   width: 100%;
-
-  p {
-    color: white;
-    margin-top: 30px;
-    font-size: 24px;
-  }
-
-  h1 {
-    font-size: 64px;
-    font-weight: 550;
-    color: white;
-  }
 }
-
+.result p {
+  color: white;
+  margin-top: 30px;
+  font-size: 24px;
+}
+.result h1 {
+  font-size: 64px;
+  font-weight: 550;
+  color: white;
+}
 .aim {
   position: absolute;
   z-index: 1;
@@ -85,7 +73,6 @@
   border-radius: 50%;
   cursor: pointer;
 }
-
 @media (max-width: 1000px) {
   .battlefield {
     display: none;

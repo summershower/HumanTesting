@@ -1,5 +1,6 @@
 import styles from './index.less';
 import { useEffect, useState, useRef } from 'react';
+import icons from '@/components/icons';
 export default function VisualMemoryGame({ restart }: { restart: Function }) {
   // 设置游戏状态
   const GAMING = 'gaming';
@@ -23,6 +24,10 @@ export default function VisualMemoryGame({ restart }: { restart: Function }) {
   const [isAllowedHandle, setIsAllowedHandle] = useState(false);
 
   const [randomNumberArr, setRandomNumberArr] = useState<number[]>([]);
+
+  const revealSoundRef = useRef<HTMLAudioElement | null>(null);
+  const backSoundRef = useRef<HTMLAudioElement | null>(null);
+  const boopSoundRef = useRef<HTMLAudioElement | null>(null);
 
   async function handleClick(index: number) {
     if (!isAllowedHandle) return highlight(index);
@@ -140,9 +145,11 @@ export default function VisualMemoryGame({ restart }: { restart: Function }) {
     const targetBox = document.querySelector('#box' + index);
     console.log(targetBox);
     if (targetBox) {
+      revealSoundRef.current && revealSoundRef.current.play();
       targetBox.classList.add(styles.turnover);
       await sleep(200);
       targetBox.classList.remove(styles.turnover);
+      backSoundRef.current && backSoundRef.current.play();
     }
   }
   async function shake(index: number) {
@@ -156,7 +163,6 @@ export default function VisualMemoryGame({ restart }: { restart: Function }) {
   }
 
   function createRandomNumberArr(quantity = boxQuantity) {
-    console.log('11');
     const totalIndex = n * n - 1;
     const arr: number[] = [];
     while (arr.length < quantity) {
@@ -185,12 +191,16 @@ export default function VisualMemoryGame({ restart }: { restart: Function }) {
   }
 
   function Gaming() {
-    console.log('shauxinel');
     return (
       <div style={{ height: '100%', width: '100%' }}>
         <div className={styles.gameStatus}>
-          当前关卡:{boxQuantity - 2}
-          生命值:{lifeQuantity}
+          当前关卡:<i>{boxQuantity - 2}</i>
+          生命值:{' '}
+          {new Array(3).fill(null).map((v, index) => (
+            <span className={lifeQuantity > index ? styles.alive : ''}>
+              {icons.Heart()}
+            </span>
+          ))}
         </div>
         <div
           className={styles.box}
@@ -213,16 +223,22 @@ export default function VisualMemoryGame({ restart }: { restart: Function }) {
   }
   function Result() {
     return (
-      <div>
-        寄了弟弟
-        <button onClick={() => restart()}>重开</button>
+      <div className={styles.result}>
+        {icons.Block()}
+        <h1>等级：{boxQuantity - 2}</h1>
+        <button className="tryAgainBtn" onClick={() => restart()}>
+          再来一次
+        </button>
       </div>
     );
   }
 
   return (
-    <div className={styles.playground} ref={playgroundRef}>
+    <div className={`${styles.playground} playground`} ref={playgroundRef}>
       {state === GAMING ? <Gaming></Gaming> : <Result></Result>}
+      <audio src="/HumanTesting/audios/reveal.mp3" ref={revealSoundRef}></audio>
+      <audio src="/HumanTesting/audios/back.mp3" ref={backSoundRef}></audio>
+      <audio src="/HumanTesting/audios/boop.mp3" ref={boopSoundRef}></audio>
     </div>
   );
 }

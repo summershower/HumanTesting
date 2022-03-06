@@ -9,5 +9,6 @@ exports['default'] = function () {
       src: require('@/static/images/loading.gif'),
       alt: 'loading',
     }),
+    React.createElement('p', null, '\u52A0\u8F7D\u4E2D...'),
   );
 };

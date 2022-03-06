@@ -220,6 +220,21 @@
           }),
         });
       }
+      function j() {
+        return Object(r['jsx'])('svg', {
+          'aria-hidden': 'true',
+          focusable: 'false',
+          'data-prefix': 'fas',
+          'data-icon': 'heart',
+          role: 'img',
+          xmlns: 'http://www.w3.org/2000/svg',
+          viewBox: '0 0 512 512',
+          children: Object(r['jsx'])('path', {
+            fill: 'currentColor',
+            d: 'M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z',
+          }),
+        });
+      }
       t['a'] = {
         HugeLighting: a,
         Lighting: c,
@@ -230,12 +245,13 @@
         Chimp: u,
         Typing: h,
         Clock: d,
+        Heart: j,
       };
     },
     '55Ip': function (e, t, n) {
       'use strict';
       n.d(t, 'a', function () {
-        return C;
+        return p;
       });
       var r = n('Ty5D'),
         a = n('dI71'),
@@ -283,19 +299,19 @@
           });
         return (u.ref = (j !== f && t) || n), i.a.createElement('a', u);
       });
-      var C = f(function (e, t) {
+      var p = f(function (e, t) {
           var n = e.component,
             a = void 0 === n ? g : n,
             c = e.replace,
             s = e.to,
             b = e.innerRef,
-            C = Object(l['a'])(e, ['component', 'replace', 'to', 'innerRef']);
+            p = Object(l['a'])(e, ['component', 'replace', 'to', 'innerRef']);
           return i.a.createElement(r['e'].Consumer, null, function (e) {
             e || Object(u['a'])(!1);
             var n = e.history,
               r = d(h(s, e.location), e.location),
               l = r ? n.createHref(r) : '',
-              g = Object(o['a'])({}, C, {
+              g = Object(o['a'])({}, p, {
                 href: l,
                 navigate: function () {
                   var t = h(s, e.location),
@@ -309,11 +325,11 @@
             );
           });
         }),
-        p = function (e) {
+        C = function (e) {
           return e;
         },
-        w = i.a.forwardRef;
-      function x() {
+        x = i.a.forwardRef;
+      function m() {
         for (var e = arguments.length, t = new Array(e), n = 0; n < e; n++)
           t[n] = arguments[n];
         return t
@@ -322,8 +338,8 @@
           })
           .join(' ');
       }
-      'undefined' === typeof w && (w = p);
-      w(function (e, t) {
+      'undefined' === typeof x && (x = C);
+      x(function (e, t) {
         var n = e['aria-current'],
           a = void 0 === n ? 'page' : n,
           c = e.activeClassName,
@@ -332,7 +348,7 @@
           f = e.className,
           b = e.exact,
           g = e.isActive,
-          m = e.location,
+          w = e.location,
           O = e.sensitive,
           v = e.strict,
           y = e.style,
@@ -354,7 +370,7 @@
           ]);
         return i.a.createElement(r['e'].Consumer, null, function (e) {
           e || Object(u['a'])(!1);
-          var n = m || e.location,
+          var n = w || e.location,
             c = d(h(_, n), n),
             l = c.pathname,
             L = l && l.replace(/([.+*?=^!:${}()[\]|/\\])/g, '\\$1'),
@@ -366,21 +382,21 @@
                   strict: v,
                 })
               : null,
-            V = !!(g ? g(M, n) : M),
-            N = V ? x(f, s) : f,
-            T = V ? Object(o['a'])({}, y, {}, j) : y,
-            R = Object(o['a'])(
+            N = !!(g ? g(M, n) : M),
+            V = N ? m(f, s) : f,
+            B = N ? Object(o['a'])({}, y, {}, j) : y,
+            T = Object(o['a'])(
               {
-                'aria-current': (V && a) || null,
-                className: N,
-                style: T,
+                'aria-current': (N && a) || null,
+                className: V,
+                style: B,
                 to: c,
               },
               H,
             );
           return (
-            p !== w ? (R.ref = t || k) : (R.innerRef = k),
-            i.a.createElement(C, R)
+            C !== x ? (T.ref = t || k) : (T.innerRef = k),
+            i.a.createElement(p, T)
           );
         });
       });
@@ -391,7 +407,7 @@
     '9ZCH': function (e, t, n) {
       'use strict';
       n.d(t, 'a', function () {
-        return q;
+        return D;
       });
       var r = n('tJVT'),
         a = n('5qa2'),
@@ -403,8 +419,12 @@
         u = n('55Ip'),
         h = n('nKUr');
       function d(e) {
+        var t = Object(s['g'])(),
+          n = t.pathname;
         return Object(h['jsxs'])('div', {
-          className: 'playground '.concat(l.a.container),
+          className: 'playground '
+            .concat(l.a.container, ' ')
+            .concat('/typing' === n || '/chimp' === n ? 'onlyPC' : ''),
           children: [
             e.icon({}),
             Object(h['jsxs'])('h1', {
@@ -442,12 +462,12 @@
           d = u[0],
           j = u[1],
           g = 'var(--themeBlue)',
-          C = 'rgb(75,219,109)',
-          p = 'rgb(206,38,54)',
-          w = Object(i['useState'])(g),
-          x = Object(r['a'])(w, 2),
-          m = x[0],
-          O = x[1],
+          p = 'rgb(75,219,109)',
+          C = 'rgb(206,38,54)',
+          x = Object(i['useState'])(g),
+          m = Object(r['a'])(x, 2),
+          w = m[0],
+          O = m[1],
           v = Object(i['useRef'])(),
           y = Object(i['useRef'])(),
           _ = Object(i['useState'])(!1),
@@ -455,61 +475,61 @@
           H = k[0],
           L = k[1],
           M = Object(i['useState'])(0),
-          V = Object(r['a'])(M, 2),
-          N = V[0],
-          T = V[1],
-          R = Object(i['useState'])(0),
-          B = Object(r['a'])(R, 2),
-          S = B[0],
-          Z = B[1],
-          I = Object(i['useState'])(1),
-          A = Object(r['a'])(I, 2),
-          E = A[0],
-          D = A[1],
-          q = Object(i['useState'])([]),
-          F = Object(r['a'])(q, 2),
-          z = F[0],
-          K = F[1];
-        function P() {
+          N = Object(r['a'])(M, 2),
+          V = N[0],
+          B = N[1],
+          T = Object(i['useState'])(0),
+          R = Object(r['a'])(T, 2),
+          S = R[0],
+          Z = R[1],
+          A = Object(i['useState'])(1),
+          I = Object(r['a'])(A, 2),
+          E = I[0],
+          z = I[1],
+          D = Object(i['useState'])([]),
+          F = Object(r['a'])(D, 2),
+          q = F[0],
+          P = F[1];
+        function K() {
           var e = 1e4 * Math.random();
           return e < 3e3 ? (e += 2e3) : e > 6e3 && (e -= 2e3), Math.round(e);
         }
-        function U() {
-          var e = P();
+        function G() {
+          var e = K();
           (v.current = setTimeout(() => {
-            L(!0), W(), O(C), j(n);
+            L(!0), U(), O(p), j(n);
           }, e)),
-            O(p);
+            O(C);
         }
-        function W() {
+        function U() {
           y.current = setTimeout(() => {
-            G(), O(g), j(s);
+            W(), O(g), j(s);
           }, 3e3);
         }
-        function G() {
+        function W() {
           v.current && clearTimeout(v.current),
             y.current && clearTimeout(y.current),
             O(g),
             L(!1),
-            T(0),
+            B(0),
             Z(0);
         }
         function Y() {
-          var e = Date.now() - N;
+          var e = Date.now() - V;
           H
-            ? (D(E + 1),
+            ? (z(E + 1),
               Z(e),
-              K([...z, e]),
+              P([...q, e]),
               y.current && clearTimeout(y.current),
               O(g),
               j(a))
-            : (G(), O(g), j(c)),
-            5 === E && (D(1), O(g), j(o));
+            : (W(), O(g), j(c)),
+            5 === E && (z(1), O(g), j(o));
         }
         function J() {
           switch (d) {
             case e:
-              U(), j(t);
+              G(), j(t);
               break;
             case t:
               Y();
@@ -518,13 +538,13 @@
               Y();
               break;
             case a:
-              G(), j(t), U();
+              W(), j(t), G();
               break;
             case s:
-              G(), U(), j(t);
+              W(), G(), j(t);
               break;
             case c:
-              G(), U(), j(t);
+              W(), G(), j(t);
               break;
             case o:
               break;
@@ -533,11 +553,11 @@
           }
         }
         function Q() {
-          var e = z.reduce((e, t) => e + t, 0);
+          var e = q.reduce((e, t) => e + t, 0);
           return Math.round(e / 5);
         }
         function X() {
-          K([]), G(), j(e), O(g);
+          P([]), W(), j(e), O(g);
         }
         function $() {
           return Object(h['jsxs'])('div', {
@@ -658,7 +678,7 @@
         }
         Object(i['useEffect'])(() => {
           var e = Date.now();
-          m === C && H && d === n && 0 === N && T(e);
+          w === p && H && d === n && 0 === V && B(e);
         });
         var ie = () => {
           switch (d) {
@@ -682,16 +702,16 @@
         };
         return Object(h['jsx'])('div', {
           className: ''.concat(f.a.playground, ' playground'),
-          style: { backgroundColor: m },
+          style: { backgroundColor: w },
           onClick: J,
           children: ie(),
         });
       }
-      var C = n('9og8'),
-        p = n('WmNS'),
-        w = n.n(p),
-        x = n('TC3c'),
-        m = n.n(x);
+      var p = n('9og8'),
+        C = n('WmNS'),
+        x = n.n(C),
+        m = n('TC3c'),
+        w = n.n(m);
       function O(e) {
         var t = e.restart,
           n = 'gaming',
@@ -706,9 +726,9 @@
           f = j[0],
           b = j[1],
           g = Object(i['useState'])(0),
-          p = Object(r['a'])(g, 2),
-          x = p[0],
-          O = p[1],
+          C = Object(r['a'])(g, 2),
+          m = C[0],
+          O = C[1],
           v = Object(i['useState'])(!1),
           y = Object(r['a'])(v, 2),
           _ = y[0],
@@ -718,16 +738,16 @@
           return 0 === e || (f.length && f[length - 1] === e) ? H() : e;
         }
         function L(e) {
-          B(e), _ && (e === f[x] ? (x === f.length - 1 ? F() : q(e)) : z());
+          R(e), _ && (e === f[m] ? (m === f.length - 1 ? F() : D(e)) : q());
         }
         function M(e) {
-          return V.apply(this, arguments);
+          return N.apply(this, arguments);
         }
-        function V() {
+        function N() {
           return (
-            (V = Object(C['a'])(
-              w.a.mark(function e(t) {
-                return w.a.wrap(function (e) {
+            (N = Object(p['a'])(
+              x.a.mark(function e(t) {
+                return x.a.wrap(function (e) {
                   while (1)
                     switch ((e.prev = e.next)) {
                       case 0:
@@ -746,31 +766,31 @@
                 }, e);
               }),
             )),
-            V.apply(this, arguments)
+            N.apply(this, arguments)
           );
         }
-        var N = Object(i['useRef'])([]);
-        function T() {
-          return R.apply(this, arguments);
+        var V = Object(i['useRef'])([]);
+        function B() {
+          return T.apply(this, arguments);
         }
-        function R() {
+        function T() {
           return (
-            (R = Object(C['a'])(
-              w.a.mark(function e() {
-                return w.a.wrap(function (e) {
+            (T = Object(p['a'])(
+              x.a.mark(function e() {
+                return x.a.wrap(function (e) {
                   while (1)
                     switch ((e.prev = e.next)) {
                       case 0:
                         return _ && k(!1), (e.next = 3), M(1200);
                       case 3:
-                        N.current.forEach((e, t) => {
+                        V.current.forEach((e, t) => {
                           setTimeout(() => {
-                            B(e);
+                            R(e);
                           }, 500 * t),
-                            t === N.current.length - 1 &&
+                            t === V.current.length - 1 &&
                               setTimeout(() => {
                                 k(!0);
-                              }, 500 * N.current.length);
+                              }, 500 * V.current.length);
                         });
                       case 4:
                       case 'end':
@@ -779,18 +799,18 @@
                 }, e);
               }),
             )),
-            R.apply(this, arguments)
+            T.apply(this, arguments)
           );
         }
-        function B(e) {
+        function R(e) {
           return S.apply(this, arguments);
         }
         function S() {
           return (
-            (S = Object(C['a'])(
-              w.a.mark(function e(t) {
+            (S = Object(p['a'])(
+              x.a.mark(function e(t) {
                 var n;
-                return w.a.wrap(function (e) {
+                return x.a.wrap(function (e) {
                   while (1)
                     switch ((e.prev = e.next)) {
                       case 0:
@@ -801,10 +821,10 @@
                           break;
                         }
                         return (
-                          n.classList.add(m.a.highlight), (e.next = 7), M(300)
+                          n.classList.add(w.a.highlight), (e.next = 7), M(300)
                         );
                       case 7:
-                        n.classList.remove(m.a.highlight);
+                        n.classList.remove(w.a.highlight);
                       case 8:
                       case 'end':
                         return e.stop();
@@ -815,28 +835,28 @@
             S.apply(this, arguments)
           );
         }
-        N.current = f;
+        V.current = f;
         var Z = Object(i['useRef'])(null);
-        function I() {
-          return A.apply(this, arguments);
-        }
         function A() {
+          return I.apply(this, arguments);
+        }
+        function I() {
           return (
-            (A = Object(C['a'])(
-              w.a.mark(function e() {
-                return w.a.wrap(function (e) {
+            (I = Object(p['a'])(
+              x.a.mark(function e() {
+                return x.a.wrap(function (e) {
                   while (1)
                     switch ((e.prev = e.next)) {
                       case 0:
                         return (
                           Z.current &&
-                            Z.current.classList.add(m.a.shallowHighlight),
+                            Z.current.classList.add(w.a.shallowHighlight),
                           (e.next = 3),
                           M(200)
                         );
                       case 3:
                         Z.current &&
-                          Z.current.classList.remove(m.a.shallowHighlight);
+                          Z.current.classList.remove(w.a.shallowHighlight);
                       case 4:
                       case 'end':
                         return e.stop();
@@ -844,27 +864,27 @@
                 }, e);
               }),
             )),
-            A.apply(this, arguments)
+            I.apply(this, arguments)
           );
         }
         function E() {
-          return D.apply(this, arguments);
+          return z.apply(this, arguments);
         }
-        function D() {
+        function z() {
           return (
-            (D = Object(C['a'])(
-              w.a.mark(function e() {
-                return w.a.wrap(function (e) {
+            (z = Object(p['a'])(
+              x.a.mark(function e() {
+                return x.a.wrap(function (e) {
                   while (1)
                     switch ((e.prev = e.next)) {
                       case 0:
                         return (
-                          Z.current && Z.current.classList.add(m.a.red),
+                          Z.current && Z.current.classList.add(w.a.red),
                           (e.next = 3),
                           M(300)
                         );
                       case 3:
-                        Z.current && Z.current.classList.remove(m.a.red);
+                        Z.current && Z.current.classList.remove(w.a.red);
                       case 4:
                       case 'end':
                         return e.stop();
@@ -872,21 +892,21 @@
                 }, e);
               }),
             )),
-            D.apply(this, arguments)
+            z.apply(this, arguments)
           );
         }
-        function q(e) {
-          O(x + 1);
+        function D(e) {
+          O(m + 1);
         }
         function F() {
-          I(), O(0), b([...f, H()]), T();
+          A(), O(0), b([...f, H()]), B();
         }
-        function z() {
+        function q() {
           E(), u(a);
         }
-        function K() {
+        function P() {
           return Object(h['jsxs'])('div', {
-            className: m.a.gaming,
+            className: w.a.gaming,
             children: [
               Object(h['jsxs'])('h2', {
                 children: [
@@ -895,14 +915,14 @@
                 ],
               }),
               Object(h['jsx'])('div', {
-                className: m.a.box,
+                className: w.a.box,
                 children: new Array(9)
                   .fill(null)
                   .map((e, t) =>
                     Object(h['jsx'])(
                       'div',
                       {
-                        className: m.a.eachBox,
+                        className: w.a.eachBox,
                         id: 'box' + (t + 1),
                         onClick: () => L(t + 1),
                       },
@@ -913,9 +933,9 @@
             ],
           });
         }
-        function P() {
+        function K() {
           return Object(h['jsxs'])('div', {
-            className: m.a.failed,
+            className: w.a.failed,
             children: [
               Object(h['jsxs'])('h1', {
                 children: ['\u7b49\u7ea7\uff1a', f.length],
@@ -928,7 +948,7 @@
             ],
           });
         }
-        function U() {
+        function G() {
           return Object(h['jsxs'])('div', {
             children: [
               '\u901a\u8fc7\u4e86',
@@ -936,26 +956,26 @@
             ],
           });
         }
-        function W() {
+        function U() {
           switch (l) {
             case n:
-              return Object(h['jsx'])(K, {});
-            case a:
               return Object(h['jsx'])(P, {});
+            case a:
+              return Object(h['jsx'])(K, {});
             case c:
-              return Object(h['jsx'])(U, {});
+              return Object(h['jsx'])(G, {});
             default:
               return null;
           }
         }
         return (
           Object(i['useEffect'])(() => {
-            b([H()]), T();
+            b([H()]), B();
           }, []),
           Object(h['jsx'])('div', {
-            className: ''.concat(m.a.playground, ' playground'),
+            className: ''.concat(w.a.playground, ' playground'),
             ref: Z,
-            children: W(),
+            children: U(),
           })
         );
       }
@@ -977,31 +997,31 @@
           f = Object(i['useState'])(0),
           b = Object(r['a'])(f, 2),
           g = b[0],
-          C = b[1],
-          p = Object(i['useRef'])(null),
-          w = Object(i['useState'])(0),
-          x = Object(r['a'])(w, 2),
-          m = x[0],
-          O = x[1],
+          p = b[1],
+          C = Object(i['useRef'])(null),
+          x = Object(i['useState'])(0),
+          m = Object(r['a'])(x, 2),
+          w = m[0],
+          O = m[1],
           v = Object(i['useRef'])(null),
           k = Object(i['useState'])(0),
           H = Object(r['a'])(k, 2),
           L = H[0],
           M = H[1],
-          V = Object(i['useState'])(0),
-          N = Object(r['a'])(V, 2),
-          T = N[0],
-          R = N[1];
-        function B() {
-          if (p.current) {
-            var e = p.current.getBoundingClientRect(),
+          N = Object(i['useState'])(0),
+          V = Object(r['a'])(N, 2),
+          B = V[0],
+          T = V[1];
+        function R() {
+          if (C.current) {
+            var e = C.current.getBoundingClientRect(),
               t = e.height,
               n = e.width,
               r = 0,
               a = 0;
             while (r < 80 || r > n - 80) r = Math.round(Math.random() * n);
             while (a < 80 || a > t - 80) a = Math.round(Math.random() * t);
-            M(r), R(a);
+            M(r), T(a);
           }
         }
         function S() {
@@ -1010,18 +1030,18 @@
         function Z() {
           j(30), o(e);
         }
-        function I() {
+        function A() {
           return Object(h['jsx'])('div', {
             className: y.a.aim,
-            onClick: A,
-            style: { left: L, top: T },
+            onClick: I,
+            style: { left: L, top: B },
           });
         }
-        function A() {
+        function I() {
           v.current && v.current.play(),
             d >= 1
-              ? (j(d - 1), B())
-              : (C(Math.round((Date.now() - m) / 30)), j(d - 1), o(n));
+              ? (j(d - 1), R())
+              : (p(Math.round((Date.now() - w) / 30)), j(d - 1), o(n));
         }
         function E() {
           return Object(h['jsxs'])('div', {
@@ -1048,10 +1068,10 @@
             ],
           });
         }
-        function D() {
+        function z() {
           return Object(h['jsxs'])('div', {
             className: y.a.battlefield,
-            ref: p,
+            ref: C,
             children: [
               Object(h['jsxs'])('h2', {
                 children: [
@@ -1060,11 +1080,11 @@
                   '\u4e2a',
                 ],
               }),
-              Object(h['jsx'])(I, {}),
+              Object(h['jsx'])(A, {}),
             ],
           });
         }
-        function q() {
+        function D() {
           return Object(h['jsxs'])('div', {
             className: y.a.result,
             children: [
@@ -1087,16 +1107,16 @@
             case e:
               return Object(h['jsx'])(E, {});
             case t:
-              return Object(h['jsx'])(D, {});
+              return Object(h['jsx'])(z, {});
             case n:
-              return Object(h['jsx'])(q, {});
+              return Object(h['jsx'])(D, {});
             default:
               return null;
           }
         }
         return (
           Object(i['useEffect'])(() => {
-            B();
+            R();
           }, []),
           Object(h['jsxs'])('div', {
             className: ''.concat(y.a.playground, ' playground onlyPC'),
@@ -1126,98 +1146,103 @@
           f = Object(i['useState'])(4),
           b = Object(r['a'])(f, 2),
           g = b[0],
-          C = b[1],
-          p = Object(i['useState'])(0),
-          w = Object(r['a'])(p, 2),
-          x = w[0],
-          m = w[1],
+          p = b[1],
+          C = Object(i['useState'])(0),
+          x = Object(r['a'])(C, 2),
+          m = x[0],
+          w = x[1],
           O = Object(i['useState'])([]),
           v = Object(r['a'])(O, 2),
           y = v[0],
-          _ = v[1],
-          k = Object(i['useState'])([]),
-          H = Object(r['a'])(k, 2),
-          M = H[0],
-          V = H[1];
-        function N(e) {
+          k = v[1],
+          H = Object(i['useState'])([]),
+          M = Object(r['a'])(H, 2),
+          N = M[0],
+          V = M[1];
+        function B(e) {
           var t = [];
           console.log(e);
           while (t.length < e) {
             var n = Math.floor(40 * Math.random());
             t.includes(n) || t.push(n);
           }
-          _(t), console.log(t);
+          k(t);
         }
         function T(e) {
           var t = y.indexOf(e),
-            n = M.length;
+            n = N.length;
           n === t
-            ? (console.log(n, y.length - 1),
-              n === y.length - 1 ? j(g < 38 ? c : o) : V([...M, e]))
-            : x < 2
-            ? (m(x + 1), j(a))
+            ? n === y.length - 1
+              ? j(g < 38 ? c : o)
+              : V([...N, e])
+            : m < 2
+            ? (w(m + 1), j(a))
             : j(s);
         }
         function R() {
-          V([]), N(g), j(n);
+          V([]), B(g), j(n);
         }
-        function B() {
-          m(0), V([]), C(g + 1), N(g + 1), j(n);
+        function S() {
+          w(0), V([]), p(g + 1), B(g + 1), j(n);
         }
-        function S(e) {
+        function Z(e) {
           return 4 === g
             ? ''
                 .concat(L.a.eachBox, ' ')
-                .concat(y.includes(e) && !M.includes(e) && L.a.shownBox, ' ')
-            : M.length
+                .concat(y.includes(e) && !N.includes(e) && L.a.shownBox, ' ')
+            : N.length
             ? ''
                 .concat(L.a.eachBox, ' ')
-                .concat(y.includes(e) && !M.includes(e) && L.a.whiteBox)
+                .concat(y.includes(e) && !N.includes(e) && L.a.whiteBox)
             : ''.concat(L.a.eachBox, ' ').concat(y.includes(e) && L.a.shownBox);
         }
-        function Z(e) {
+        function A(e) {
           return ''.concat(y.indexOf(e) >= 0 ? y.indexOf(e) + 1 : '');
         }
         function I() {
           return Object(h['jsxs'])('div', {
+            className: L.a.success,
             children: [
-              Object(h['jsx'])('h1', { children: '\u8fc7\u4e86' }),
-              '\u5f53\u524d\u7b49\u7ea7: ',
-              g,
+              Object(h['jsx'])('h2', { children: '\u6570\u91cf\uff1a' }),
+              Object(h['jsx'])('h1', { children: g }),
+              Object(h['jsx'])('h2', { children: '\u751f\u547d\u503c\uff1a' }),
+              Object(h['jsxs'])('h2', { children: [' ', 3 - m, ' / 3'] }),
               Object(h['jsx'])('button', {
-                onClick: B,
+                className: 'continueBtn',
+                onClick: S,
                 children: '\u4e0b\u4e00\u5173',
               }),
             ],
           });
         }
-        function A() {
+        function E() {
           return Object(h['jsxs'])('div', {
+            className: L.a.failed,
             children: [
-              '\u5f53\u524d\u7b49\u7ea7: ',
-              g,
-              '\u751f\u547d\uff1a',
-              x,
-              ' / 3',
+              Object(h['jsx'])('h2', { children: '\u6570\u91cf\uff1a' }),
+              Object(h['jsx'])('h1', { children: g }),
+              Object(h['jsx'])('h2', { children: '\u751f\u547d\u503c\uff1a' }),
+              Object(h['jsxs'])('h2', { children: [' ', 3 - m, ' / 3'] }),
               Object(h['jsx'])('button', {
+                className: 'tryAgainBtn',
                 onClick: R,
                 children: '\u518d\u8bd5\u4e00\u6b21',
               }),
             ],
           });
         }
-        function E() {
+        function z() {
           return Object(h['jsx'])('div', {
             className: L.a.box,
             children: new Array(40).fill(null).map((e, t) =>
               Object(h['jsx'])(
                 'div',
                 {
-                  className: S(t),
+                  className: Z(t),
                   onClick: () => {
                     T(t);
                   },
-                  children: Z(t),
+                  children: A(t),
                 },
                 t,
               ),
@@ -1226,57 +1251,64 @@
         }
         function D() {
           return Object(h['jsxs'])('div', {
+            className: L.a.result,
             children: [
-              Object(h['jsx'])('h1', { children: '\u4f60\u65e0\u4e86' }),
-              '\u6700\u7ec8\u6210\u7ee9: ',
-              g,
+              _['a'].Block(),
+              Object(h['jsx'])('h2', { children: '\u6700\u7ec8\u6210\u7ee9:' }),
+              Object(h['jsx'])('h1', { children: g }),
               Object(h['jsx'])('button', {
+                className: 'tryAgainBtn',
                 onClick: () => t(),
-                children: '\u91cd\u5f00\u5427\u635e\u4ed4',
+                children: '\u518d\u8bd5\u4e00\u6b21',
               }),
             ],
           });
         }
-        function q() {
+        function F() {
           return Object(h['jsxs'])('div', {
+            className: L.a.result,
             children: [
               Object(h['jsx'])('h1', {
                 children:
                   '\u4f60\u5df2\u7ecf\u5230\u8fbe\u5b87\u5b99\u5c3d\u5934',
               }),
               Object(h['jsx'])('button', {
+                className: 'tryAgainBtn',
                 onClick: () => t(),
                 children: '\u518d\u8bd5\u4e00\u6b21\uff1f',
               }),
             ],
           });
         }
-        function F() {
+        function q() {
           switch (d) {
             case n:
-              return Object(h['jsx'])(E, {});
+              return Object(h['jsx'])(z, {});
             case c:
               return Object(h['jsx'])(I, {});
             case a:
-              return Object(h['jsx'])(A, {});
+              return Object(h['jsx'])(E, {});
             case s:
               return Object(h['jsx'])(D, {});
             case o:
-              return Object(h['jsx'])(q, {});
+              return Object(h['jsx'])(F, {});
             default:
               return null;
           }
         }
         return (
           Object(i['useEffect'])(() => {
-            N(4);
+            B(4);
           }, []),
-          Object(h['jsx'])('div', { className: L.a.playground, children: F() })
+          Object(h['jsx'])('div', {
+            className: ''.concat(L.a.playground, ' playground onlyPC'),
+            children: q(),
+          })
         );
       }
-      var V = n('FLQI'),
-        N = n.n(V);
-      function T(e) {
+      var N = n('FLQI'),
+        V = n.n(N);
+      function B(e) {
         var t = e.restart,
           n = 'gaming',
           a = 'result',
@@ -1288,62 +1320,65 @@
           d = Object(r['a'])(u, 2),
           j = d[0],
           f = d[1],
-          b = Object(i['useState'])(3),
-          g = Object(r['a'])(b, 2),
-          p = g[0],
-          x = g[1],
-          m = Object(i['useState'])(4),
-          O = Object(r['a'])(m, 2),
-          v = O[0],
-          y = O[1],
-          _ = Object(i['useState'])(3),
-          k = Object(r['a'])(_, 2),
-          H = k[0],
-          L = k[1],
-          M = Object(i['useState'])([0, 0, 0]),
-          V = Object(r['a'])(M, 2),
-          T = V[0],
-          R = V[1],
-          B = Object(i['useState'])(0),
-          S = Object(r['a'])(B, 2),
-          Z = S[0],
-          I = S[1],
-          A = Object(i['useState'])(3),
-          E = Object(r['a'])(A, 2),
-          D = E[0],
-          q = E[1],
-          F = Object(i['useState'])([]),
-          z = Object(r['a'])(F, 2),
-          K = z[0],
-          P = z[1],
+          g = Object(i['useState'])(3),
+          C = Object(r['a'])(g, 2),
+          m = C[0],
+          w = C[1],
+          O = Object(i['useState'])(4),
+          v = Object(r['a'])(O, 2),
+          y = v[0],
+          _ = v[1],
+          k = Object(i['useState'])(3),
+          H = Object(r['a'])(k, 2),
+          L = H[0],
+          M = H[1],
+          N = Object(i['useState'])([0, 0, 0]),
+          B = Object(r['a'])(N, 2),
+          T = B[0],
+          R = B[1],
+          S = Object(i['useState'])(0),
+          Z = Object(r['a'])(S, 2),
+          A = Z[0],
+          I = Z[1],
+          E = Object(i['useState'])(3),
+          z = Object(r['a'])(E, 2),
+          D = z[0],
+          F = z[1],
+          q = Object(i['useState'])([]),
+          P = Object(r['a'])(q, 2),
+          K = P[0],
+          G = P[1],
           U = Object(i['useState'])([]),
           W = Object(r['a'])(U, 2),
-          G = W[0],
-          Y = W[1],
-          J = Object(i['useState'])(!1),
-          Q = Object(r['a'])(J, 2),
-          X = Q[0],
-          $ = Q[1],
-          ee = Object(i['useState'])([]),
-          te = Object(r['a'])(ee, 2),
-          ne = te[0],
-          re = te[1];
-        function ae(e) {
-          return ce.apply(this, arguments);
+          Y = W[0],
+          J = W[1],
+          Q = Object(i['useState'])(!1),
+          X = Object(r['a'])(Q, 2),
+          $ = X[0],
+          ee = X[1],
+          te = Object(i['useState'])([]),
+          ne = Object(r['a'])(te, 2),
+          re = ne[0],
+          ae = ne[1],
+          ce = Object(i['useRef'])(null),
+          ie = Object(i['useRef'])(null),
+          se = Object(i['useRef'])(null);
+        function oe(e) {
+          return le.apply(this, arguments);
         }
-        function ce() {
+        function le() {
           return (
-            (ce = Object(C['a'])(
-              w.a.mark(function e(t) {
-                return w.a.wrap(function (e) {
+            (le = Object(p['a'])(
+              x.a.mark(function e(t) {
+                return x.a.wrap(function (e) {
                   while (1)
                     switch ((e.prev = e.next)) {
                       case 0:
-                        if (X) {
+                        if ($) {
                           e.next = 2;
                           break;
                         }
-                        return e.abrupt('return', pe(t));
+                        return e.abrupt('return', Oe(t));
                       case 2:
                         if (!K.includes(t)) {
                           e.next = 4;
@@ -1351,29 +1386,29 @@
                         }
                         return e.abrupt('return');
                       case 4:
-                        if (!ne.includes(t)) {
+                        if (!re.includes(t)) {
                           e.next = 16;
                           break;
                         }
-                        if (G.length !== p - 1) {
+                        if (Y.length !== m - 1) {
                           e.next = 12;
                           break;
                         }
-                        return fe(), (e.next = 9), he(500);
+                        return Ce(), (e.next = 9), be(500);
                       case 9:
-                        ue(), (e.next = 14);
+                        fe(), (e.next = 14);
                         break;
                       case 12:
-                        P([...K, t]), Y([...G, t]);
+                        G([...K, t]), J([...Y, t]);
                       case 14:
                         e.next = 17;
                         break;
                       case 16:
-                        2 === Z
+                        2 === A
                           ? 1 === D
                             ? l(a)
-                            : (q(D - 1), ge(), le())
-                          : (I(Z + 1), P([...K, t]));
+                            : (F(D - 1), me(), je())
+                          : (I(A + 1), G([...K, t]));
                       case 17:
                       case 'end':
                         return e.stop();
@@ -1381,33 +1416,33 @@
                 }, e);
               }),
             )),
-            ce.apply(this, arguments)
+            le.apply(this, arguments)
           );
         }
-        var ie = Object(i['useRef'])([]);
-        function se() {
-          return oe.apply(this, arguments);
+        var ue = Object(i['useRef'])([]);
+        function he() {
+          return de.apply(this, arguments);
         }
-        function oe() {
+        function de() {
           return (
-            (oe = Object(C['a'])(
-              w.a.mark(function e() {
-                return w.a.wrap(function (e) {
+            (de = Object(p['a'])(
+              x.a.mark(function e() {
+                return x.a.wrap(function (e) {
                   while (1)
                     switch ((e.prev = e.next)) {
                       case 0:
-                        return (e.next = 2), he(1200);
+                        return (e.next = 2), be(1200);
                       case 2:
                         return (
-                          ie.current &&
-                            ie.current.forEach((e) => {
-                              xe(e);
+                          ue.current &&
+                            ue.current.forEach((e) => {
+                              ye(e);
                             }),
                           (e.next = 5),
-                          he(200)
+                          be(200)
                         );
                       case 5:
-                        $(!0);
+                        ee(!0);
                       case 6:
                       case 'end':
                         return e.stop();
@@ -1415,33 +1450,33 @@
                 }, e);
               }),
             )),
-            oe.apply(this, arguments)
+            de.apply(this, arguments)
           );
         }
-        function le() {
-          X && $(!1), I(0), P([]), Y([]), Oe();
+        function je() {
+          $ && ee(!1), I(0), G([]), J([]), ke();
         }
-        function ue() {
-          if ((I(0), P([]), Y([]), x(p + 1), p + 1 > v)) {
+        function fe() {
+          if ((I(0), G([]), J([]), w(m + 1), m + 1 > y)) {
             if (T[T.length - 1] === T.length - 1) {
               var e = T;
-              (e[e.length] = 1), R(e), L(H + 2), y(v + H + 2);
+              (e[e.length] = 1), R(e), M(L + 2), _(y + L + 2);
             } else {
               var t = T;
-              (t[t.length - 1] = t[t.length - 1] + 1), R(t), y(v + H);
+              (t[t.length - 1] = t[t.length - 1] + 1), R(t), _(y + L);
             }
             f(j + 1);
           }
-          Oe(p + 1), X && $(!1);
+          ke(m + 1), $ && ee(!1);
         }
-        function he(e) {
-          return de.apply(this, arguments);
+        function be(e) {
+          return ge.apply(this, arguments);
         }
-        function de() {
+        function ge() {
           return (
-            (de = Object(C['a'])(
-              w.a.mark(function e(t) {
-                return w.a.wrap(function (e) {
+            (ge = Object(p['a'])(
+              x.a.mark(function e(t) {
+                return x.a.wrap(function (e) {
                   while (1)
                     switch ((e.prev = e.next)) {
                       case 0:
@@ -1460,58 +1495,30 @@
                 }, e);
               }),
             )),
-            de.apply(this, arguments)
+            ge.apply(this, arguments)
           );
         }
-        ie.current = ne;
-        var je = Object(i['useRef'])(null);
-        function fe() {
-          return be.apply(this, arguments);
-        }
-        function be() {
-          return (
-            (be = Object(C['a'])(
-              w.a.mark(function e() {
-                return w.a.wrap(function (e) {
-                  while (1)
-                    switch ((e.prev = e.next)) {
-                      case 0:
-                        return (
-                          je.current && je.current.classList.add(N.a.highlight),
-                          (e.next = 3),
-                          he(200)
-                        );
-                      case 3:
-                        je.current &&
-                          je.current.classList.remove(N.a.highlight);
-                      case 4:
-                      case 'end':
-                        return e.stop();
-                    }
-                }, e);
-              }),
-            )),
-            be.apply(this, arguments)
-          );
-        }
-        function ge() {
-          return Ce.apply(this, arguments);
-        }
+        ue.current = re;
+        var pe = Object(i['useRef'])(null);
         function Ce() {
+          return xe.apply(this, arguments);
+        }
+        function xe() {
           return (
-            (Ce = Object(C['a'])(
-              w.a.mark(function e() {
-                return w.a.wrap(function (e) {
+            (xe = Object(p['a'])(
+              x.a.mark(function e() {
+                return x.a.wrap(function (e) {
                   while (1)
                     switch ((e.prev = e.next)) {
                       case 0:
                         return (
-                          je.current && je.current.classList.add(N.a.red),
+                          pe.current && pe.current.classList.add(V.a.highlight),
                           (e.next = 3),
-                          he(200)
+                          be(200)
                         );
                       case 3:
-                        je.current && je.current.classList.remove(N.a.red);
+                        pe.current &&
+                          pe.current.classList.remove(V.a.highlight);
                       case 4:
                       case 'end':
                         return e.stop();
@@ -1519,33 +1526,28 @@
                 }, e);
               }),
             )),
-            Ce.apply(this, arguments)
+            xe.apply(this, arguments)
           );
         }
-        function pe(e) {
+        function me() {
           return we.apply(this, arguments);
         }
         function we() {
           return (
-            (we = Object(C['a'])(
-              w.a.mark(function e(t) {
-                var n;
-                return w.a.wrap(function (e) {
+            (we = Object(p['a'])(
+              x.a.mark(function e() {
+                return x.a.wrap(function (e) {
                   while (1)
                     switch ((e.prev = e.next)) {
                       case 0:
-                        return (e.next = 2), he(1);
-                      case 2:
-                        if (((n = document.querySelector('#box' + t)), !n)) {
-                          e.next = 8;
-                          break;
-                        }
                         return (
-                          n.classList.add(N.a.highlight), (e.next = 7), he(200)
+                          pe.current && pe.current.classList.add(V.a.red),
+                          (e.next = 3),
+                          be(200)
                         );
-                      case 7:
-                        n.classList.remove(N.a.highlight);
-                      case 8:
+                      case 3:
+                        pe.current && pe.current.classList.remove(V.a.red);
+                      case 4:
                       case 'end':
                         return e.stop();
                     }
@@ -1555,131 +1557,191 @@
             we.apply(this, arguments)
           );
         }
-        function xe(e) {
-          return me.apply(this, arguments);
+        function Oe(e) {
+          return ve.apply(this, arguments);
         }
-        function me() {
+        function ve() {
           return (
-            (me = Object(C['a'])(
-              w.a.mark(function e(t) {
+            (ve = Object(p['a'])(
+              x.a.mark(function e(t) {
                 var n;
-                return w.a.wrap(function (e) {
+                return x.a.wrap(function (e) {
                   while (1)
                     switch ((e.prev = e.next)) {
                       case 0:
-                        return (e.next = 2), he(1);
+                        return (e.next = 2), be(1);
                       case 2:
-                        if (
-                          ((n = document.querySelector('#box' + t)),
-                          console.log(n),
-                          !n)
-                        ) {
-                          e.next = 9;
+                        if (((n = document.querySelector('#box' + t)), !n)) {
+                          e.next = 8;
                           break;
                         }
                         return (
-                          n.classList.add(N.a.turnover), (e.next = 8), he(200)
+                          n.classList.add(V.a.highlight), (e.next = 7), be(200)
                         );
+                      case 7:
+                        n.classList.remove(V.a.highlight);
                       case 8:
-                        n.classList.remove(N.a.turnover);
-                      case 9:
                       case 'end':
                         return e.stop();
                     }
                 }, e);
               }),
             )),
-            me.apply(this, arguments)
+            ve.apply(this, arguments)
           );
         }
-        function Oe() {
+        function ye(e) {
+          return _e.apply(this, arguments);
+        }
+        function _e() {
+          return (
+            (_e = Object(p['a'])(
+              x.a.mark(function e(t) {
+                var n;
+                return x.a.wrap(function (e) {
+                  while (1)
+                    switch ((e.prev = e.next)) {
+                      case 0:
+                        return (e.next = 2), be(1);
+                      case 2:
+                        if (
+                          ((n = document.querySelector('#box' + t)),
+                          console.log(n),
+                          !n)
+                        ) {
+                          e.next = 11;
+                          break;
+                        }
+                        return (
+                          ce.current && ce.current.play(),
+                          n.classList.add(V.a.turnover),
+                          (e.next = 9),
+                          be(200)
+                        );
+                      case 9:
+                        n.classList.remove(V.a.turnover),
+                          ie.current && ie.current.play();
+                      case 11:
+                      case 'end':
+                        return e.stop();
+                    }
+                }, e);
+              }),
+            )),
+            _e.apply(this, arguments)
+          );
+        }
+        function ke() {
           var e =
-            arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : p;
-          console.log('11');
-          var t = j * j - 1,
+              arguments.length > 0 && void 0 !== arguments[0]
+                ? arguments[0]
+                : m,
+            t = j * j - 1,
             n = [];
           while (n.length < e) {
             var r = Math.round(Math.random() * t);
             n.includes(r) || n.push(r);
           }
-          re(n), se();
+          ae(n), he();
         }
-        function ve(e) {
+        function He(e) {
           return ''
-            .concat(N.a.eachBox, ' ')
+            .concat(V.a.eachBox, ' ')
             .concat(
               K.includes(e)
-                ? ne.includes(e)
-                  ? N.a.whiteBox
-                  : N.a.wrongBox
+                ? re.includes(e)
+                  ? V.a.whiteBox
+                  : V.a.wrongBox
                 : '',
               ' }',
             );
         }
-        function ye() {
-          return (
-            console.log('shauxinel'),
-            Object(h['jsxs'])('div', {
-              style: { height: '100%', width: '100%' },
-              children: [
-                Object(h['jsxs'])('div', {
-                  className: N.a.gameStatus,
-                  children: [
-                    '\u5f53\u524d\u5173\u5361:',
-                    p - 2,
-                    '\u751f\u547d\u503c:',
-                    D,
-                  ],
-                }),
-                Object(h['jsx'])('div', {
-                  className: N.a.box,
-                  style: {
-                    gridTemplateRows: 'repeat('.concat(j, ',1fr)'),
-                    gridTemplateColumns: 'repeat('.concat(j, ',1fr)'),
-                  },
-                  children: new Array(j * j)
+        function Le() {
+          return Object(h['jsxs'])('div', {
+            style: { height: '100%', width: '100%' },
+            children: [
+              Object(h['jsxs'])('div', {
+                className: V.a.gameStatus,
+                children: [
+                  '\u5f53\u524d\u5173\u5361:',
+                  Object(h['jsx'])('i', { children: m - 2 }),
+                  '\u751f\u547d\u503c: ',
+                  new Array(3)
                     .fill(null)
                     .map((e, t) =>
-                      Object(h['jsx'])(
-                        'div',
-                        {
-                          className: ve(t),
-                          id: 'box'.concat(t),
-                          onClick: () => ae(t),
-                        },
-                        t,
-                      ),
+                      Object(h['jsx'])('span', {
+                        className: D > t ? V.a.alive : '',
+                        children: b['a'].Heart(),
+                      }),
                     ),
-                }),
-              ],
-            })
-          );
+                ],
+              }),
+              Object(h['jsx'])('div', {
+                className: V.a.box,
+                style: {
+                  gridTemplateRows: 'repeat('.concat(j, ',1fr)'),
+                  gridTemplateColumns: 'repeat('.concat(j, ',1fr)'),
+                },
+                children: new Array(j * j)
+                  .fill(null)
+                  .map((e, t) =>
+                    Object(h['jsx'])(
+                      'div',
+                      {
+                        className: He(t),
+                        id: 'box'.concat(t),
+                        onClick: () => oe(t),
+                      },
+                      t,
+                    ),
+                  ),
+              }),
+            ],
+          });
         }
-        function _e() {
+        function Me() {
           return Object(h['jsxs'])('div', {
+            className: V.a.result,
             children: [
-              '\u5bc4\u4e86\u5f1f\u5f1f',
+              b['a'].Block(),
+              Object(h['jsxs'])('h1', {
+                children: ['\u7b49\u7ea7\uff1a', m - 2],
+              }),
               Object(h['jsx'])('button', {
+                className: 'tryAgainBtn',
                 onClick: () => t(),
-                children: '\u91cd\u5f00',
+                children: '\u518d\u6765\u4e00\u6b21',
               }),
             ],
           });
         }
         return (
           Object(i['useEffect'])(() => {
-            Oe();
+            ke();
           }, []),
-          Object(h['jsx'])('div', {
-            className: N.a.playground,
-            ref: je,
-            children:
-              o === n ? Object(h['jsx'])(ye, {}) : Object(h['jsx'])(_e, {}),
+          Object(h['jsxs'])('div', {
+            className: ''.concat(V.a.playground, ' playground'),
+            ref: pe,
+            children: [
+              o === n ? Object(h['jsx'])(Le, {}) : Object(h['jsx'])(Me, {}),
+              Object(h['jsx'])('audio', {
+                src: '/HumanTesting/audios/reveal.mp3',
+                ref: ce,
+              }),
+              Object(h['jsx'])('audio', {
+                src: '/HumanTesting/audios/back.mp3',
+                ref: ie,
+              }),
+              Object(h['jsx'])('audio', {
+                src: '/HumanTesting/audios/boop.mp3',
+                ref: se,
+              }),
+            ],
           })
         );
       }
-      var R = n('pDd/'),
-        B = n.n(R);
+      var T = n('pDd/'),
+        R = n.n(T);
       function S(e) {
         var t = e.restart,
           n = 'showing',
@@ -1694,12 +1756,12 @@
           f = Object(r['a'])(j, 2),
           b = f[0],
           g = f[1],
-          C = Object(i['useState'])(''),
-          p = Object(r['a'])(C, 2),
-          w = p[0],
-          x = p[1],
-          m = Object(i['useRef'])(),
-          O = (e) => e && setTimeout(() => e.classList.add(B.a.zero), 1),
+          p = Object(i['useState'])(''),
+          C = Object(r['a'])(p, 2),
+          x = C[0],
+          m = C[1],
+          w = Object(i['useRef'])(),
+          O = (e) => e && setTimeout(() => e.classList.add(R.a.zero), 100),
           v = Object(i['useRef'])(),
           y = (e) => {
             e && (e.focus(), (v.current = e));
@@ -1716,9 +1778,9 @@
             n++
           )
             t += Math.floor(10 * Math.random());
-          x(t),
-            m.current && clearTimeout(m.current),
-            (m.current = setTimeout(
+          m(t),
+            w.current && clearTimeout(w.current),
+            (w.current = setTimeout(
               () => {
                 d(a);
               },
@@ -1726,52 +1788,63 @@
             ));
         }
         function k(e) {
-          'Enter' === e.key && (e.target.value === w ? d(c) : d(s));
+          'Enter' === e.key && (e.target.value === x ? d(c) : d(s));
         }
         function H() {
-          v.current && (v.current.value === w ? d(c) : d(s));
+          v.current && (v.current.value === x ? d(c) : d(s));
         }
         function L() {
           g(b + 1), d(n), _(b + 1);
         }
         function M() {
-          return (
-            console.log('\u5237\u65b0\u4e86\u554a'),
-            Object(h['jsxs'])('div', {
-              children: [
-                Object(h['jsx'])('h1', { children: w }),
-                Object(h['jsx'])('div', {
-                  className: B.a.progressBar,
-                  children: Object(h['jsx'])('div', {
-                    className: B.a.progressFluid,
-                    ref: O,
-                    style: {
-                      transition: 'all '.concat(
-                        b + 2 < 4 ? 3.8 : b + 1.8,
-                        's linear',
-                      ),
-                    },
-                  }),
-                }),
-              ],
-            })
-          );
-        }
-        function V() {
           return Object(h['jsxs'])('div', {
+            className: R.a.progress,
             children: [
+              Object(h['jsx'])('h1', { children: x }),
+              Object(h['jsx'])('div', {
+                className: R.a.progressBar,
+                children: Object(h['jsx'])('div', {
+                  className: R.a.progressFluid,
+                  ref: O,
+                  style: {
+                    transition: 'all '.concat(
+                      b + 2 < 4 ? 3.8 : b + 1.8,
+                      's linear',
+                    ),
+                  },
+                }),
+              }),
+            ],
+          });
+        }
+        function N() {
+          return Object(h['jsxs'])('div', {
+            className: R.a.typing,
+            children: [
+              Object(h['jsx'])('h1', {
+                children:
+                  '\u8bf7\u8f93\u5165\u4f60\u770b\u5230\u7684\u6570\u5b57\uff1a',
+              }),
+              Object(h['jsx'])('h2', {
+                children:
+                  '\u53ef\u4ee5\u6309Enter\u56de\u8f66\u952e\u63d0\u4ea4',
+              }),
               Object(h['jsx'])('input', {
-                className: B.a.input,
+                className: R.a.input,
                 type: 'text',
                 maxLength: b,
                 ref: y,
                 onKeyUp: k,
               }),
-              Object(h['jsx'])('button', { onClick: H, children: 'submit' }),
+              Object(h['jsx'])('button', {
+                onClick: H,
+                className: R.a.nextBtn,
+                children: '\u63d0\u4ea4',
+              }),
             ],
           });
         }
-        function N() {
+        function V() {
           return (
             Object(i['useEffect'])(() => {
               var e = (e) => {
@@ -1785,37 +1858,60 @@
               );
             }, []),
             Object(h['jsxs'])('div', {
+              className: R.a.passed,
               children: [
-                Object(h['jsx'])('h1', {
-                  children: ' \u5b81\u5f73\u4e8d\u5566',
+                Object(h['jsx'])('h3', {
+                  children: '\u6b63\u786e\u7b54\u6848\uff1a',
                 }),
-                Object(h['jsx'])('button', { onClick: L, children: 'next' }),
+                Object(h['jsx'])('h2', { children: x }),
+                Object(h['jsx'])('h3', {
+                  children: '\u4f60\u7684\u7b54\u6848\uff1a',
+                }),
+                Object(h['jsx'])('h2', { children: x }),
+                Object(h['jsxs'])('h1', {
+                  children: ['\u5f53\u524d\u7b49\u7ea7\uff1a', x.length],
+                }),
+                Object(h['jsx'])('button', {
+                  onClick: L,
+                  children: '\u7ee7\u7eed',
+                }),
               ],
             })
           );
         }
-        function T() {
+        function B() {
           return Object(h['jsxs'])('div', {
+            className: R.a.failed,
             children: [
-              Object(h['jsx'])('h1', { children: '\u83dc\u72d7' }),
-              Object(h['jsx'])('h2', { children: w.length }),
+              Object(h['jsx'])('h3', {
+                children: '\u6b63\u786e\u7b54\u6848\uff1a',
+              }),
+              Object(h['jsx'])('h2', { children: x }),
+              Object(h['jsx'])('h3', {
+                children: '\u4f60\u7684\u7b54\u6848\uff1a',
+              }),
+              Object(h['jsx'])('h2', { children: x }),
+              Object(h['jsxs'])('h1', {
+                children: ['\u5f53\u524d\u7b49\u7ea7\uff1a', x.length],
+              }),
               Object(h['jsx'])('button', {
+                className: 'tryAgainBtn',
                 onClick: () => t(),
-                children: 'remake',
+                children: '\u91cd\u65b0\u5f00\u59cb',
               }),
             ],
           });
         }
-        function R() {
+        function T() {
           switch (u) {
             case n:
               return Object(h['jsx'])(M, {});
             case a:
-              return Object(h['jsx'])(V, {});
-            case c:
               return Object(h['jsx'])(N, {});
+            case c:
+              return Object(h['jsx'])(V, {});
             case s:
-              return Object(h['jsx'])(T, {});
+              return Object(h['jsx'])(B, {});
             default:
               return null;
           }
@@ -1825,14 +1921,14 @@
             _();
           }, []),
           Object(i['useEffect'])(() => {
-            console.log(w);
+            console.log(x);
           }),
-          Object(h['jsx'])('div', { children: R() })
+          Object(h['jsx'])('div', { className: 'playground', children: T() })
         );
       }
       var Z = n('Mmxv'),
-        I = n.n(Z);
-      function A(e) {
+        A = n.n(Z);
+      function I(e) {
         var t = e.restart,
           n = 'typing',
           a = 'result',
@@ -1872,10 +1968,10 @@
           b(t.split(''));
         }, []);
         var g = Object(i['useState'])(0),
-          C = Object(r['a'])(g, 2),
-          p = C[0],
-          w = C[1];
-        function x() {
+          p = Object(r['a'])(g, 2),
+          C = p[0],
+          x = p[1];
+        function m() {
           var e = Object(i['useState'])(!0),
             t = Object(r['a'])(e, 2),
             n = t[0],
@@ -1887,12 +1983,12 @@
             j = Object(i['useRef'])(),
             b = Object(i['useState'])(0),
             g = Object(r['a'])(b, 2),
-            C = g[0],
-            p = g[1];
+            p = g[0],
+            C = g[1];
           j.current = u;
-          var x = Object(i['useRef'])(0);
-          x.current = C;
-          var m = Object(i['useRef'])(null),
+          var m = Object(i['useRef'])(0);
+          m.current = p;
+          var w = Object(i['useRef'])(null),
             O = Object(i['useState'])(0),
             v = Object(r['a'])(O, 2),
             y = v[0],
@@ -1902,27 +1998,27 @@
           var H = Object(i['useState'])(0),
             L = Object(r['a'])(H, 2),
             M = L[0],
-            V = L[1],
-            N = Object(i['useRef'])(0);
-          N.current = M;
-          var T = Object(i['useRef'])();
-          function R(e) {
+            N = L[1],
+            V = Object(i['useRef'])(0);
+          V.current = M;
+          var B = Object(i['useRef'])();
+          function T(e) {
             if (!j.current) return '';
             if (0 === j.current.length && 0 === e && n)
-              return ' '.concat(I.a.firstCursor);
+              return ' '.concat(A.a.firstCursor);
             if (!j.current[e]) return '';
             var t = '';
             return (
               (t =
                 j.current[e] === f[e]
-                  ? ''.concat(I.a.correct)
-                  : ''.concat(I.a.wrong)),
-              j.current.length - 1 === e && n && (t += ' '.concat(I.a.current)),
+                  ? ''.concat(A.a.correct)
+                  : ''.concat(A.a.wrong)),
+              j.current.length - 1 === e && n && (t += ' '.concat(A.a.current)),
               t
             );
           }
-          function B() {
-            var e = Math.floor(N.current / 1e3),
+          function R() {
+            var e = Math.floor(V.current / 1e3),
               t = Math.floor(e / 60),
               n = e % 60,
               r = t < 10 ? '0' + String(t) : t,
@@ -1935,33 +2031,33 @@
                 t = (e) => {
                   if (n && j.current)
                     if (
-                      (T.current ||
-                        (T.current = setInterval(() => {
-                          var e = N.current + 250;
-                          V(e);
-                          var t = Math.round((x.current / e) * 12e3);
+                      (B.current ||
+                        (B.current = setInterval(() => {
+                          var e = V.current + 250;
+                          N(e);
+                          var t = Math.round((m.current / e) * 12e3);
                           _(t);
                         }, 250)),
                       'Space' === e.code)
                     )
                       e.preventDefault(),
                         d([...j.current, ' ']),
-                        f[j.current.length - 1] === e.key && p(x.current + 1),
+                        f[j.current.length - 1] === e.key && C(m.current + 1),
                         j.current.length + 1 === f.length &&
-                          (l(a), w(k.current));
+                          (l(a), x(k.current));
                     else if ('Backspace' === e.code) {
                       var t = [...j.current];
                       t.pop(),
                         j.current.length &&
                           (d(t),
                           j.current[j.current.length - 1] ===
-                            f[j.current.length - 1] && p(x.current - 1));
+                            f[j.current.length - 1] && C(m.current - 1));
                     } else
                       1 === e.key.length &&
                         (d([...j.current, e.key]),
-                        f[j.current.length - 1] === e.key && p(x.current + 1),
+                        f[j.current.length - 1] === e.key && C(m.current + 1),
                         j.current.length + 1 === f.length &&
-                          (w(k.current), l(a)));
+                          (x(k.current), l(a)));
                 };
               function r(e) {
                 e.stopPropagation(), c(!0);
@@ -1972,18 +2068,18 @@
               return (
                 document.addEventListener('keydown', t),
                 document.addEventListener('click', i),
-                null === (e = m.current) ||
+                null === (e = w.current) ||
                   void 0 === e ||
                   e.addEventListener('click', r),
                 () => {
                   var e;
                   document.removeEventListener('keydown', t),
                     document.removeEventListener('click', i),
-                    null === (e = m.current) ||
+                    null === (e = w.current) ||
                       void 0 === e ||
                       e.removeEventListener('click', r),
-                    T.current && clearInterval(T.current),
-                    w(k.current);
+                    B.current && clearInterval(B.current),
+                    x(k.current);
                 }
               );
             }, []),
@@ -1996,31 +2092,31 @@
                 }),
                 Object(h['jsx'])('div', {
                   className: ''
-                    .concat(I.a.inputArea, ' ')
-                    .concat(n ? I.a.focus : ''),
-                  ref: m,
+                    .concat(A.a.inputArea, ' ')
+                    .concat(n ? A.a.focus : ''),
+                  ref: w,
                   children: f.map((e, t) =>
                     Object(h['jsx'])(
                       'span',
-                      { className: R(t), children: e },
+                      { className: T(t), children: e },
                       t,
                     ),
                   ),
                 }),
-                Object(h['jsx'])('p', { className: I.a.time, children: B() }),
+                Object(h['jsx'])('p', { className: A.a.time, children: R() }),
               ],
             })
           );
         }
-        function m() {
+        function w() {
           return Object(h['jsxs'])('div', {
-            className: I.a.result,
+            className: A.a.result,
             children: [
               _['a'].Typing(),
               Object(h['jsx'])('h2', {
                 children: '\u4f60\u7684\u8f93\u5165\u901f\u5ea6\u4e3a',
               }),
-              Object(h['jsx'])('h1', { children: p > 0 ? p : 0 }),
+              Object(h['jsx'])('h1', { children: C > 0 ? C : 0 }),
               Object(h['jsx'])('p', { children: '\u5b57/\u5206\u949f' }),
               Object(h['jsx'])('button', {
                 className: 'tryAgainBtn',
@@ -2031,17 +2127,17 @@
           });
         }
         return Object(h['jsx'])('div', {
-          className: ''.concat(I.a.playground, ' playground onlyPC'),
-          children: o === n ? Object(h['jsx'])(x, {}) : Object(h['jsx'])(m, {}),
+          className: ''.concat(A.a.playground, ' playground onlyPC'),
+          children: o === n ? Object(h['jsx'])(m, {}) : Object(h['jsx'])(w, {}),
         });
       }
       var E = n('rlch'),
-        D = Object(E['c'])({
+        z = Object(E['c'])({
           loader: (function () {
-            var e = Object(C['a'])(
-              w.a.mark(function e() {
+            var e = Object(p['a'])(
+              x.a.mark(function e() {
                 var t, r;
-                return w.a.wrap(function (e) {
+                return x.a.wrap(function (e) {
                   while (1)
                     switch ((e.prev = e.next)) {
                       case 0:
@@ -2063,7 +2159,7 @@
             return t;
           })(),
         });
-      function q(e) {
+      function D(e) {
         var t = Object(i['useState'])(!1),
           n = Object(r['a'])(t, 2),
           a = n[0],
@@ -2089,13 +2185,13 @@
               case '/number':
                 return Object(h['jsx'])(S, { restart: () => o(!1) });
               case '/verbal':
-                return Object(h['jsx'])(D, { restart: () => o(!1) });
+                return Object(h['jsx'])(z, { restart: () => o(!1) });
               case '/chimp':
                 return Object(h['jsx'])(M, { restart: () => o(!1) });
               case '/visualmemory':
-                return Object(h['jsx'])(T, { restart: () => o(!1) });
+                return Object(h['jsx'])(B, { restart: () => o(!1) });
               case '/typing':
-                return Object(h['jsx'])(A, { restart: () => o(!1) });
+                return Object(h['jsx'])(I, { restart: () => o(!1) });
             }
           };
         return Object(h['jsx'])('div', {
@@ -2111,6 +2207,8 @@
     FLQI: function (e, t, n) {
       e.exports = {
         playground: 'playground___2Ljfm',
+        gameStatus: 'gameStatus___3mC5U',
+        alive: 'alive___30PVY',
         box: 'box___2cBe8',
         eachBox: 'eachBox___1aF4K',
         whiteBox: 'whiteBox___1_p_D',
@@ -2118,6 +2216,7 @@
         highlight: 'highlight___2dYP_',
         wrongBox: 'wrongBox___1ze-N',
         turnover: 'turnover___eaJHQ',
+        result: 'result___3zBBy',
         shaking: 'shaking___37Mhf',
       };
     },
@@ -2163,6 +2262,9 @@
         eachBox: 'eachBox___Nnt22',
         whiteBox: 'whiteBox___3NXEy',
         shownBox: 'shownBox___d668F',
+        success: 'success___2dEBb',
+        failed: 'failed___337a4',
+        result: 'result___1uZSz',
       };
     },
     dRtj: function (e, t, n) {
@@ -2194,10 +2296,17 @@
     },
     'pDd/': function (e, t, n) {
       e.exports = {
+        typing: 'typing___30sRg',
+        failed: 'failed___3CjGC',
+        progress: 'progress___2FWfi',
+        passed: 'passed___2GbF6',
+        'failed\uff0c': 'failed\uff0c___2rTd9',
         progressBar: 'progressBar___2n690',
         progressFluid: 'progressFluid___3FgYo',
         input: 'input___bvVFF',
         zero: 'zero___1CIwD',
+        nextBtn: 'nextBtn___1KqHr',
+        dropDown: 'dropDown___15cmH',
       };
     },
     s2Hx: function (e, t, n) {
@@ -2419,6 +2528,21 @@
           }),
         });
       }
+      function j() {
+        return Object(r['jsx'])('svg', {
+          'aria-hidden': 'true',
+          focusable: 'false',
+          'data-prefix': 'fas',
+          'data-icon': 'heart',
+          role: 'img',
+          xmlns: 'http://www.w3.org/2000/svg',
+          viewBox: '0 0 512 512',
+          children: Object(r['jsx'])('path', {
+            fill: 'currentColor',
+            d: 'M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z',
+          }),
+        });
+      }
       t['a'] = {
         HugeLighting: a,
         Lighting: c,
@@ -2429,6 +2553,7 @@
         Chimp: u,
         Typing: h,
         Clock: d,
+        Heart: j,
       };
     },
   },
