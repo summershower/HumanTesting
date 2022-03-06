@@ -368,19 +368,19 @@
               : null,
             V = !!(g ? g(M, n) : M),
             N = V ? x(f, s) : f,
-            R = V ? Object(o['a'])({}, y, {}, j) : y,
-            T = Object(o['a'])(
+            T = V ? Object(o['a'])({}, y, {}, j) : y,
+            R = Object(o['a'])(
               {
                 'aria-current': (V && a) || null,
                 className: N,
-                style: R,
+                style: T,
                 to: c,
               },
               H,
             );
           return (
-            p !== w ? (T.ref = t || k) : (T.innerRef = k),
-            i.a.createElement(C, T)
+            p !== w ? (R.ref = t || k) : (R.innerRef = k),
+            i.a.createElement(C, R)
           );
         });
       });
@@ -457,9 +457,9 @@
           M = Object(i['useState'])(0),
           V = Object(r['a'])(M, 2),
           N = V[0],
-          R = V[1],
-          T = Object(i['useState'])(0),
-          B = Object(r['a'])(T, 2),
+          T = V[1],
+          R = Object(i['useState'])(0),
+          B = Object(r['a'])(R, 2),
           S = B[0],
           Z = B[1],
           I = Object(i['useState'])(1),
@@ -472,7 +472,7 @@
           K = F[1];
         function P() {
           var e = 1e4 * Math.random();
-          return e < 3e3 ? (e += 3e3) : e > 8e3 && (e -= 2e3), Math.round(e);
+          return e < 3e3 ? (e += 2e3) : e > 6e3 && (e -= 2e3), Math.round(e);
         }
         function U() {
           var e = P();
@@ -491,7 +491,7 @@
             y.current && clearTimeout(y.current),
             O(g),
             L(!1),
-            R(0),
+            T(0),
             Z(0);
         }
         function Y() {
@@ -534,7 +534,7 @@
         }
         function Q() {
           var e = z.reduce((e, t) => e + t, 0);
-          return e / 5;
+          return Math.round(e / 5);
         }
         function X() {
           K([]), G(), j(e), O(g);
@@ -642,20 +642,23 @@
         function ce() {
           return Object(h['jsxs'])('div', {
             className: f.a.finished,
+            onClick: X,
             children: [
-              Object(h['jsx'])('p', { className: f.a.intro, children: Q() }),
-              Object(h['jsx'])('button', {
-                onClick: X,
-                className: f.a.startIntro,
+              b['a'].Lighting(),
+              Object(h['jsx'])('h2', {
+                children: '\u4f60\u7684\u53cd\u5e94\u65f6\u95f4\u4e3a\uff1a',
+              }),
+              Object(h['jsxs'])('h1', { children: [Q(), 'ms'] }),
+              Object(h['jsx'])('p', {
                 children:
-                  '\u6309\u4e0b\u4efb\u610f\u4f4d\u7f6e\u7ee7\u7eed\u6d4b\u8bd5',
+                  '\u6309\u4e0b\u4efb\u610f\u4f4d\u7f6e\u91cd\u65b0\u6d4b\u8bd5',
               }),
             ],
           });
         }
         Object(i['useEffect'])(() => {
           var e = Date.now();
-          m === C && H && d === n && 0 === N && R(e);
+          m === C && H && d === n && 0 === N && T(e);
         });
         var ie = () => {
           switch (d) {
@@ -747,12 +750,12 @@
           );
         }
         var N = Object(i['useRef'])([]);
-        function R() {
-          return T.apply(this, arguments);
-        }
         function T() {
+          return R.apply(this, arguments);
+        }
+        function R() {
           return (
-            (T = Object(C['a'])(
+            (R = Object(C['a'])(
               w.a.mark(function e() {
                 return w.a.wrap(function (e) {
                   while (1)
@@ -776,7 +779,7 @@
                 }, e);
               }),
             )),
-            T.apply(this, arguments)
+            R.apply(this, arguments)
           );
         }
         function B(e) {
@@ -876,7 +879,7 @@
           O(x + 1);
         }
         function F() {
-          I(), O(0), b([...f, H()]), R();
+          I(), O(0), b([...f, H()]), T();
         }
         function z() {
           E(), u(a);
@@ -947,7 +950,7 @@
         }
         return (
           Object(i['useEffect'])(() => {
-            b([H()]), R();
+            b([H()]), T();
           }, []),
           Object(h['jsx'])('div', {
             className: ''.concat(m.a.playground, ' playground'),
@@ -987,8 +990,8 @@
           M = H[1],
           V = Object(i['useState'])(0),
           N = Object(r['a'])(V, 2),
-          R = N[0],
-          T = N[1];
+          T = N[0],
+          R = N[1];
         function B() {
           if (p.current) {
             var e = p.current.getBoundingClientRect(),
@@ -998,7 +1001,7 @@
               a = 0;
             while (r < 80 || r > n - 80) r = Math.round(Math.random() * n);
             while (a < 80 || a > t - 80) a = Math.round(Math.random() * t);
-            M(r), T(a);
+            M(r), R(a);
           }
         }
         function S() {
@@ -1011,7 +1014,7 @@
           return Object(h['jsx'])('div', {
             className: y.a.aim,
             onClick: A,
-            style: { left: L, top: R },
+            style: { left: L, top: T },
           });
         }
         function A() {
@@ -1145,7 +1148,7 @@
           }
           _(t), console.log(t);
         }
-        function R(e) {
+        function T(e) {
           var t = y.indexOf(e),
             n = M.length;
           n === t
@@ -1155,7 +1158,7 @@
             ? (m(x + 1), j(a))
             : j(s);
         }
-        function T() {
+        function R() {
           V([]), N(g), j(n);
         }
         function B() {
@@ -1197,7 +1200,7 @@
               x,
               ' / 3',
               Object(h['jsx'])('button', {
-                onClick: T,
+                onClick: R,
                 children: '\u518d\u8bd5\u4e00\u6b21',
               }),
             ],
@@ -1212,7 +1215,7 @@
                 {
                   className: S(t),
                   onClick: () => {
-                    R(t);
+                    T(t);
                   },
                   children: Z(t),
                 },
@@ -1273,7 +1276,7 @@
       }
       var V = n('FLQI'),
         N = n.n(V);
-      function R(e) {
+      function T(e) {
         var t = e.restart,
           n = 'gaming',
           a = 'result',
@@ -1299,8 +1302,8 @@
           L = k[1],
           M = Object(i['useState'])([0, 0, 0]),
           V = Object(r['a'])(M, 2),
-          R = V[0],
-          T = V[1],
+          T = V[0],
+          R = V[1],
           B = Object(i['useState'])(0),
           S = Object(r['a'])(B, 2),
           Z = S[0],
@@ -1420,12 +1423,12 @@
         }
         function ue() {
           if ((I(0), P([]), Y([]), x(p + 1), p + 1 > v)) {
-            if (R[R.length - 1] === R.length - 1) {
-              var e = R;
-              (e[e.length] = 1), T(e), L(H + 2), y(v + H + 2);
+            if (T[T.length - 1] === T.length - 1) {
+              var e = T;
+              (e[e.length] = 1), R(e), L(H + 2), y(v + H + 2);
             } else {
-              var t = R;
-              (t[t.length - 1] = t[t.length - 1] + 1), T(t), y(v + H);
+              var t = T;
+              (t[t.length - 1] = t[t.length - 1] + 1), R(t), y(v + H);
             }
             f(j + 1);
           }
@@ -1675,8 +1678,8 @@
           })
         );
       }
-      var T = n('pDd/'),
-        B = n.n(T);
+      var R = n('pDd/'),
+        B = n.n(R);
       function S(e) {
         var t = e.restart,
           n = 'showing',
@@ -1791,7 +1794,7 @@
             })
           );
         }
-        function R() {
+        function T() {
           return Object(h['jsxs'])('div', {
             children: [
               Object(h['jsx'])('h1', { children: '\u83dc\u72d7' }),
@@ -1803,7 +1806,7 @@
             ],
           });
         }
-        function T() {
+        function R() {
           switch (u) {
             case n:
               return Object(h['jsx'])(M, {});
@@ -1812,7 +1815,7 @@
             case c:
               return Object(h['jsx'])(N, {});
             case s:
-              return Object(h['jsx'])(R, {});
+              return Object(h['jsx'])(T, {});
             default:
               return null;
           }
@@ -1824,7 +1827,7 @@
           Object(i['useEffect'])(() => {
             console.log(w);
           }),
-          Object(h['jsx'])('div', { children: T() })
+          Object(h['jsx'])('div', { children: R() })
         );
       }
       var Z = n('Mmxv'),
@@ -1902,8 +1905,8 @@
             V = L[1],
             N = Object(i['useRef'])(0);
           N.current = M;
-          var R = Object(i['useRef'])();
-          function T(e) {
+          var T = Object(i['useRef'])();
+          function R(e) {
             if (!j.current) return '';
             if (0 === j.current.length && 0 === e && n)
               return ' '.concat(I.a.firstCursor);
@@ -1932,8 +1935,8 @@
                 t = (e) => {
                   if (n && j.current)
                     if (
-                      (R.current ||
-                        (R.current = setInterval(() => {
+                      (T.current ||
+                        (T.current = setInterval(() => {
                           var e = N.current + 250;
                           V(e);
                           var t = Math.round((x.current / e) * 12e3);
@@ -1979,7 +1982,7 @@
                     null === (e = m.current) ||
                       void 0 === e ||
                       e.removeEventListener('click', r),
-                    R.current && clearInterval(R.current),
+                    T.current && clearInterval(T.current),
                     w(k.current);
                 }
               );
@@ -1999,7 +2002,7 @@
                   children: f.map((e, t) =>
                     Object(h['jsx'])(
                       'span',
-                      { className: T(t), children: e },
+                      { className: R(t), children: e },
                       t,
                     ),
                   ),
@@ -2090,7 +2093,7 @@
               case '/chimp':
                 return Object(h['jsx'])(M, { restart: () => o(!1) });
               case '/visualmemory':
-                return Object(h['jsx'])(R, { restart: () => o(!1) });
+                return Object(h['jsx'])(T, { restart: () => o(!1) });
               case '/typing':
                 return Object(h['jsx'])(A, { restart: () => o(!1) });
             }
@@ -2181,6 +2184,7 @@
         overtime: 'overtime___12fBm',
         countdown: 'countdown___GH7xh',
         failed: 'failed___JTeUC',
+        finished: 'finished___Zb6Tu',
         startIntro: 'startIntro___3dleM',
         dropDown: 'dropDown___1rkG-',
         title: 'title___2aHMn',
