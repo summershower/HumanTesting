@@ -5,10 +5,9 @@
   line-height: 60px;
   text-align: right;
   padding: 0 20px;
-
-  p {
-    color: #666;
-  }
+}
+.footer p {
+  color: #666;
 }
 @media (min-width: 768px) {
   .footer {

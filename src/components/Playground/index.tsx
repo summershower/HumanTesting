@@ -9,8 +9,9 @@ import AimTrainerGame from '@/components/Playground/Games/AimTrainerGame';
 import ChimpGame from '@/components/Playground/Games/ChimpGame';
 import VisualMemoryGame from '@/components/Playground/Games/VisualMemoryGame';
 import NumberGame from '@/components/Playground/Games/NumberGame';
-import VerbalGame from '@/components/Playground/Games/VerbalGame';
 import TypingGame from '@/components/Playground/Games/TypingGame';
+// import VerbalGame from '@/components/Playground/Games/VerbalGame';
+import AsyncVerbalGame from '@/components/Playground/Games/AsyncVerbalGame';
 
 export default function Playground(props: IPlaygroundProps) {
   const [isGameStarted, setIsGameStarted] = useState(false);
@@ -34,7 +35,9 @@ export default function Playground(props: IPlaygroundProps) {
           );
         case '/verbal':
           return (
-            <VerbalGame restart={() => setIsGameStarted(false)}></VerbalGame>
+            <AsyncVerbalGame
+              restart={() => setIsGameStarted(false)}
+            ></AsyncVerbalGame>
           );
         case '/chimp':
           return (

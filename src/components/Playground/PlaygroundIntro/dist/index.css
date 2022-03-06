@@ -6,33 +6,26 @@
     transform: translateY(0px);
   }
 }
-.container {
-  svg {
-    margin-top: 60px;
-  }
+.container svg {
+  margin-top: 60px;
 }
-
 .title,
 .intro {
   color: white;
 }
-
 .title {
   font-size: 64px;
   animation: dropDown 0.5s ease;
   margin-top: 30px;
 }
-
 .intro {
   font-size: 28px;
   animation: dropDown 0.6s ease;
   color: rgba(255, 255, 255, 0.8);
 }
-
 svg {
   animation: dropDown 0.4s ease;
 }
-
 .startBtn {
   display: inline-block;
   border-radius: 5px;
@@ -47,20 +40,17 @@ svg {
   font-size: 24px;
   margin-top: 30px;
 }
-
 @media (max-width: 768px) {
   .container {
     padding: 50px 10px;
-
-    .title {
-      font-size: 50px;
-    }
-
-    .intro {
-      font-size: 28px;
-    }
-    .startBtn {
-      margin-top: 50px;
-    }
+  }
+  .container .title {
+    font-size: 50px;
+  }
+  .container .intro {
+    font-size: 28px;
+  }
+  .container .startBtn {
+    margin-top: 50px;
   }
 }

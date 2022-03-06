@@ -1,72 +1,98 @@
 'use strict';
+
 exports.__esModule = true;
+
 var index_less_1 = require('./index.less');
+
 var react_1 = require('react');
+
 var Icons_1 = require('@/components/Icons');
+
 function AimTrainerGame() {
   var GUIDING = 'guiding';
   var GAMING = 'gaming';
   var RESULT = 'result';
+
   var _a = react_1.useState(GUIDING),
     state = _a[0],
     setState = _a[1];
+
   var _b = react_1.useState(30),
     hitCount = _b[0],
     setHitCount = _b[1];
+
   var _c = react_1.useState(0),
     score = _c[0],
     setScore = _c[1];
+
   var battlefieldRef = react_1.useRef(null);
+
   var _d = react_1.useState(0),
     startTimestramp = _d[0],
     setStartTimestramp = _d[1];
-  var audioRef = react_1.useRef(null);
-  // 创建随机坐标
+
+  var audioRef = react_1.useRef(null); // 创建随机坐标
+
   var _e = react_1.useState(0),
     x = _e[0],
     setX = _e[1];
+
   var _f = react_1.useState(0),
     y = _f[0],
     setY = _f[1];
+
   react_1.useEffect(function () {
     createRandomPosition();
   }, []);
+
   function createRandomPosition() {
     if (battlefieldRef.current) {
       var _a = battlefieldRef.current.getBoundingClientRect(),
         height = _a.height,
         width = _a.width;
+
       var randomX = 0,
         randomY = 0;
+
       while (randomX < 80 || randomX > width - 80) {
         randomX = Math.round(Math.random() * width);
       }
+
       while (randomY < 80 || randomY > height - 80) {
         randomY = Math.round(Math.random() * height);
       }
+
       setX(randomX);
       setY(randomY);
     }
   }
+
   function start() {
     setStartTimestramp(Date.now());
     setState(GAMING);
   }
+
   function restart() {
     setHitCount(30);
     setState(GUIDING);
   }
+
   function Aim() {
     return React.createElement('div', {
       className: index_less_1['default'].aim,
       onClick: hit,
-      style: { left: x, top: y },
+      style: {
+        left: x,
+        top: y,
+      },
     });
   }
+
   function hit() {
     if (audioRef.current) {
       audioRef.current.play();
     }
+
     if (hitCount >= 1) {
       setHitCount(hitCount - 1);
       createRandomPosition();
@@ -76,16 +102,19 @@ function AimTrainerGame() {
       setState(RESULT);
     }
   }
+
   function Guiding() {
     return React.createElement(
       'div',
-      { className: index_less_1['default'].guiding },
+      {
+        className: index_less_1['default'].guiding,
+      },
       React.createElement('h1', null, '\u6253\u9776\u8BAD\u7EC3\u573A'),
       React.createElement(
         'div',
         {
           className: index_less_1['default'].icon,
-          onClick: function () {
+          onClick: function onClick() {
             state === GUIDING && start();
           },
         },
@@ -103,10 +132,14 @@ function AimTrainerGame() {
       ),
     );
   }
+
   function Gaming() {
     return React.createElement(
       'div',
-      { className: index_less_1['default'].battlefield, ref: battlefieldRef },
+      {
+        className: index_less_1['default'].battlefield,
+        ref: battlefieldRef,
+      },
       React.createElement(
         'h2',
         null,
@@ -117,10 +150,13 @@ function AimTrainerGame() {
       React.createElement(Aim, null),
     );
   }
+
   function Result() {
     return React.createElement(
       'div',
-      { className: index_less_1['default'].result },
+      {
+        className: index_less_1['default'].result,
+      },
       Icons_1['default'].Aim(),
       React.createElement(
         'p',
@@ -130,31 +166,42 @@ function AimTrainerGame() {
       React.createElement('h1', null, score, 'ms'),
       React.createElement(
         'button',
-        { className: 'tryAgainBtn', onClick: restart },
+        {
+          className: 'tryAgainBtn',
+          onClick: restart,
+        },
         '\u91CD\u65B0\u5F00\u59CB',
       ),
     );
   }
+
   function render() {
     switch (state) {
       case GUIDING:
         return React.createElement(Guiding, null);
+
       case GAMING:
         return React.createElement(Gaming, null);
+
       case RESULT:
         return React.createElement(Result, null);
+
       default:
         return null;
     }
   }
+
   return React.createElement(
     'div',
-    { className: index_less_1['default'].playground + ' playground onlyPC' },
+    {
+      className: index_less_1['default'].playground + ' playground onlyPC',
+    },
     render(),
     React.createElement('audio', {
       ref: audioRef,
-      src: '/HumanTesting/audios/shoot.mp3',
+      src: '/HumanTesting/public/audios/shoot.mp3',
     }),
   );
 }
+
 exports['default'] = AimTrainerGame;

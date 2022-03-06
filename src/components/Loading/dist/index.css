@@ -1,0 +1,30 @@
+.loading {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10vw;
+  height: 10vw;
+  z-index: 9;
+  background: white;
+  border-radius: 15px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: 10px 10px 30px rgba(0, 0, 0, 0.4);
+}
+.loading img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 8vw;
+}
+@media (max-width: 768px) {
+  .loading {
+    width: 40vw;
+    height: 40vw;
+  }
+  .loading img {
+    width: 35vw;
+  }
+}

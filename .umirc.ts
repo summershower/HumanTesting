@@ -1,7 +1,7 @@
 import { defineConfig } from 'umi';
 export default defineConfig({
   title: '人类极限测试',
-  favicon: '/public/favicon.ico',
+  favicon: 'HumanTesting/public/favicon.ico',
   nodeModulesTransform: {
     type: 'none',
   },
@@ -23,17 +23,11 @@ export default defineConfig({
     },
   ],
   fastRefresh: {},
-  copy: [
-    {
-      from: 'src/static/audios',
-      to: 'public/audios',
-    },
-    {
-      from: 'src/static/favicon.ico',
-      to: 'public/favicon.ico',
-    },
-  ],
+  dynamicImport: {
+    loading: '@/components/Loading',
+  },
+  // 以下三个选项为配置git Page静态页面使用
+  base: process.env.NODE_ENV === 'production' ? '/HumanTesting/' : '/',
   publicPath: process.env.NODE_ENV === 'production' ? '/HumanTesting/' : '/',
   outputPath: 'docs',
-  base: process.env.NODE_ENV === 'production' ? '/HumanTesting/' : '/',
 });

@@ -13,6 +13,7 @@
 @media (max-width:768px) {
     .playground {
         height: 75vh;
+        min-height: 650px;
         width: 100%;
     }
     .onlyPC {

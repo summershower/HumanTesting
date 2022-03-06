@@ -30,8 +30,8 @@ export default function ReactionTimeGame() {
 
   function createRandomSeconds() {
     let r = Math.random() * 10000;
-    if (r < 3000) r = r + 3000;
-    else if (r > 8000) r = r - 2000;
+    if (r < 3000) r = r + 2000;
+    else if (r > 6000) r = r - 2000;
     return Math.round(r);
   }
   function startCount() {
@@ -135,7 +135,7 @@ export default function ReactionTimeGame() {
   // 获取最终成绩
   function getAveragedScore() {
     const sum = scoresRecord.reduce((total, current) => total + current, 0);
-    return sum / 5;
+    return Math.round(sum / 5);
   }
 
   function restart() {
@@ -201,11 +201,11 @@ export default function ReactionTimeGame() {
   }
   function Finished() {
     return (
-      <div className={styles.finished}>
-        <p className={styles.intro}>{getAveragedScore()}</p>
-        <button onClick={restart} className={styles.startIntro}>
-          按下任意位置继续测试
-        </button>
+      <div className={styles.finished} onClick={restart}>
+        {icons.Lighting()}
+        <h2>你的反应时间为：</h2>
+        <h1>{getAveragedScore()}ms</h1>
+        <p>按下任意位置重新测试</p>
       </div>
     );
   }

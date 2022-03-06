@@ -1,0 +1,119 @@
+@keyframes dropDown {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+.playground {
+  cursor: pointer;
+}
+.guide,
+.waiting,
+.success,
+.overtime,
+.countdown,
+.failed {
+  cursor: pointer;
+  height: 100%;
+  color: white;
+}
+.waiting,
+.countdown,
+.success,
+.failed,
+.overtime,
+.finished {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 46px;
+}
+.waiting svg,
+.countdown svg,
+.success svg,
+.failed svg,
+.overtime svg,
+.finished svg {
+  width: 80px;
+  margin: 0 auto;
+}
+.waiting .startIntro,
+.countdown .startIntro,
+.success .startIntro,
+.failed .startIntro,
+.overtime .startIntro,
+.finished .startIntro {
+  font-size: 24px;
+}
+.guide svg {
+  margin-top: 50px;
+  animation: dropDown 0.4s ease;
+}
+.guide .title {
+  font-size: 64px;
+  color: white;
+  animation: dropDown 0.5s ease;
+}
+.guide .intro {
+  font-size: 28px;
+  animation: dropDown 0.6s ease;
+}
+.guide .startIntro {
+  font-size: 24px;
+  animation: dropDown 0.6s ease;
+}
+.score {
+  margin-top: 50px;
+  font-size: 64px;
+}
+.finished {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.finished svg {
+  animation: dropDown 0.5s ease;
+}
+.finished h1 {
+  color: white;
+  animation: dropDown 0.5s ease;
+}
+.finished h2 {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 28px;
+  margin-top: 20px;
+  animation: dropDown 0.4s ease;
+}
+.finished p {
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.8);
+  animation: dropDown 0.6s ease;
+}
+@media (max-width: 768px) {
+  .guide {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .guide svg {
+    margin-top: 70px;
+    animation: dropDown 0.4s ease;
+  }
+  .guide .title {
+    font-size: 44px;
+    color: white;
+    animation: dropDown 0.5s ease;
+  }
+  .guide .intro {
+    margin-top: 30px;
+    font-size: 22px;
+    animation: dropDown 0.6s ease;
+  }
+  .guide .startIntro {
+    margin-top: 40px;
+    font-size: 16px;
+  }
+}
