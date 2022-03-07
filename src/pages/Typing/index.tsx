@@ -4,7 +4,7 @@ import icons from '@/components/Icons';
 export default function Typing() {
   const playgroundIntro = {
     title: '输入速度',
-    desc: '请记住顺序',
+    desc: '看看你打字有多快',
     icon: icons.Typing,
   };
   const gamesInfo = {

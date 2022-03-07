@@ -20,7 +20,7 @@
       function a() {
         var n = {
             title: '\u8f93\u5165\u901f\u5ea6',
-            desc: '\u8bf7\u8bb0\u4f4f\u987a\u5e8f',
+            desc: '\u770b\u770b\u4f60\u6253\u5b57\u6709\u591a\u5feb',
             icon: i['a'].Typing,
           },
           t = {
