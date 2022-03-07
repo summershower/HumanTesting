@@ -20,7 +20,7 @@ export default function AimTrainerGame() {
   const [y, setY] = useState(0);
 
   function createRandomPosition() {
-    let h = 574,
+    let h = 564,
       w = 1000;
     if (battlefieldRef.current) {
       const { height, width } = battlefieldRef.current.getBoundingClientRect();

@@ -115,7 +115,10 @@ export default function NumberGame({ restart }: { restart: Function }) {
         <h3>你的答案：</h3>
         <h2>{num}</h2>
         <h1>当前等级：{num.length}</h1>
-        <button className="continueBtn" onClick={nextLevel}>
+        <button
+          className={`continueBtn ${styles.tryAgainBtn}`}
+          onClick={nextLevel}
+        >
           继续
         </button>
       </div>
@@ -129,7 +132,10 @@ export default function NumberGame({ restart }: { restart: Function }) {
         <h3>你的答案：</h3>
         <h2>{failedResult}</h2>
         <h1>当前等级：{num.length}</h1>
-        <button className="tryAgainBtn" onClick={() => restart()}>
+        <button
+          className={`tryAgainBtn ${styles.tryAgainBtn}`}
+          onClick={() => restart()}
+        >
           重新开始
         </button>
       </div>

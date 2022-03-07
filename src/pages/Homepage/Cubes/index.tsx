@@ -49,8 +49,8 @@ export default function Cubes() {
     },
     {
       icon: 'Typing',
-      title: '输入测试',
-      intro: '测试每分钟的输入速度',
+      title: '打字速度',
+      intro: '测试每分钟的打字速度',
       link: '/typing',
     },
   ];

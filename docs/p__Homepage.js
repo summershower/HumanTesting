@@ -64,9 +64,9 @@
           },
           {
             icon: 'Typing',
-            title: '\u8f93\u5165\u6d4b\u8bd5',
+            title: '\u6253\u5b57\u901f\u5ea6',
             intro:
-              '\u6d4b\u8bd5\u6bcf\u5206\u949f\u7684\u8f93\u5165\u901f\u5ea6',
+              '\u6d4b\u8bd5\u6bcf\u5206\u949f\u7684\u6253\u5b57\u901f\u5ea6',
             link: '/typing',
           },
         ];
