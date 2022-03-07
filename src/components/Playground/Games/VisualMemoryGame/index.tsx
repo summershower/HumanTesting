@@ -191,7 +191,10 @@ export default function VisualMemoryGame({ restart }: { restart: Function }) {
           : styles.wrongBox
         : ''
     } } ${
-      userClickedArr[userClickedArr.length - 1] === index ? styles.turnback : ''
+      userClickedArr[userClickedArr.length - 1] === index &&
+      randomNumberArr.includes(index)
+        ? styles.turnback
+        : ''
     }`;
   }
 

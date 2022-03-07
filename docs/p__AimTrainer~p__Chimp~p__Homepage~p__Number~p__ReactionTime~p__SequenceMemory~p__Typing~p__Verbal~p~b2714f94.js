@@ -1649,7 +1649,9 @@
                 : '',
               ' } ',
             )
-            .concat(K[K.length - 1] === e ? V.a.turnback : '');
+            .concat(
+              K[K.length - 1] === e && re.includes(e) ? V.a.turnback : '',
+            );
         }
         function Le() {
           return Object(h['jsxs'])('div', {
