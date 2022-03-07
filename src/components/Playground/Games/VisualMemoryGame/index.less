@@ -1,59 +1,117 @@
 @keyframes turnover {
   0% {
-    transfrom: rotate3d(1, 0, 0, 0deg) scale(1);
+    transform: rotate3d(1, 0, 0, 0deg);
   }
 
-  50% {
-    transfrom: rotate3d(1, 0, 0, 180deg) scale(2);
+  20% {
+    background: white;
+    transform: rotate3d(1, 0, 0, 180deg);
+  }
+
+  80% {
+    background: white;
+    transform: rotate3d(1, 0, 0, 180deg);
   }
 
   100% {
-    transfrom: rotate3d(1, 0, 0, 0deg) scale(1);
+    transform: rotate3d(1, 0, 0, 0deg);
+  }
+}
+
+@keyframes turnback {
+  0% {
+    transform: rotate3d(1, 0, 0, 0deg);
+  }
+
+  100% {
+    transform: rotate3d(1, 0, 0, 180deg);
+    background: white;
   }
 }
 
 @keyframes shaking {
   0% {
-    transform: translateX();
+    transform: translateX(0);
+  }
+
+  5% {
+    transform: translateX(-6px);
   }
 
   10% {
+    transform: translateX(0px);
+  }
+
+  15% {
+    transform: translateX(6px);
   }
 
   20% {
-    transform: translateX();
+    transform: translateX(0px);
+  }
+
+  25% {
+    transform: translateX(-5px);
   }
 
   30% {
-    transform: translateX();
+    transform: translateX(0px);
+  }
+
+  35% {
+    transform: translateX(5px);
   }
 
   40% {
-    transform: translateX();
+    transform: translateX(0px);
+  }
+
+  45% {
+    transform: translateX(-4px);
   }
 
   50% {
-    transform: translateX();
+    transform: translateX(0px);
+  }
+
+  55% {
+    transform: translateX(4px);
   }
 
   60% {
-    transform: translateX();
+    transform: translateX(0px);
+  }
+
+  65% {
+    transform: translateX(-3px);
   }
 
   70% {
-    transform: translateX();
+    transform: translateX(0px);
+  }
+
+  75% {
+    transform: translateX(3px);
   }
 
   80% {
-    transform: translateX();
+    transform: translateX(0px);
+  }
+
+  85% {
+    transform: translateX(-2px);
   }
 
   90% {
-    transform: translateX();
+    transform: translateX(0px);
+  }
+
+  95% {
+    transform: translateX(2px);
   }
 
   100% {
-    transform: translateX();
+    transform: translateX(0px);
   }
 }
 
@@ -118,12 +176,16 @@
   background: white;
 }
 
+.turnback {
+  animation: turnback 0.4s ease;
+}
+
 .red {
   background: rgba(219, 49, 49, 0.8) !important;
 }
 
 .highlight {
-  background: rgba(255, 255, 255, 0.8) !important;
+  background: rgba(255, 255, 255, 0.6) !important;
 }
 
 .wrongBox {
@@ -131,8 +193,12 @@
 }
 
 .turnover {
-  // animation: turnover;
-  background: blue;
+  animation: turnover 1s ease;
+  // background: blue;
+}
+
+.shake {
+  animation: shaking 0.3s ease;
 }
 
 .result {
@@ -159,11 +225,13 @@
   .gameStatus {
     margin-top: 15vw;
   }
+
   .box {
     width: 100vw;
     height: 100vw;
     margin-top: 8vw;
   }
+
   .result {
     svg {
       margin-top: 30vw;

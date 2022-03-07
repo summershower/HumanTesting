@@ -8,25 +8,30 @@
   box-sizing: border-box;
   padding: 20px 30px;
 }
+
 .gamesStatistics h2 {
   font-weight: 550;
   font-size: 26px;
 }
+
 .gamesStatistics img {
   position: absolute;
   left: 50%;
   top: 53%;
   transform: translate(-50%, -50%);
-  width: 500px;
+  width: 470px;
 }
+
 @media (max-width: 768px) {
   .gamesStatistics {
     height: 350px;
     padding: 20px;
   }
+
   .gamesStatistics h2 {
     font-size: 24px;
   }
+
   .gamesStatistics img {
     margin-top: 10px;
     width: 90%;

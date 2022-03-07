@@ -1,0 +1,65 @@
+.gaming,
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.gaming {
+  h2 {
+    color: rgba(255, 255, 255, 0.6);
+
+    i {
+      font-style: normal;
+      color: white;
+      font-weight: 550;
+      font-size: 28px;
+
+      &:first-of-type {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  h1 {
+    color: white;
+    font-size: 68px;
+  }
+
+  p {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .buttons {
+    margin: 10px auto 0;
+
+    button {
+      &:first-of-type {
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+.result {
+  h1 {
+    color: white;
+    font-size: 58px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gaming {
+    .buttons {
+      button {
+        width: 40vw;
+      }
+    }
+  }
+}

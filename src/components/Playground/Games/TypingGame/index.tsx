@@ -117,7 +117,6 @@ export default function TypingGame({ restart }: { restart: Function }) {
         setFocus(true);
       }
       function defocusHandle(e: Event) {
-        console.log(e);
         setFocus(false);
       }
       document.addEventListener('keydown', keyupHandler);

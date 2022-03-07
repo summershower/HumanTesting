@@ -71,7 +71,7 @@
       function a() {
         var n = {
             title: '\u6570\u5b57\u8bb0\u5fc6',
-            desc: '\u8bf7\u8bb0\u4f4f\u987a\u5e8f',
+            desc: '\u8bf7\u8bb0\u4f4f\u63a5\u4e0b\u6765\u51fa\u73b0\u7684\u6570\u5b57',
             icon: i['a'].Number,
           },
           t = {

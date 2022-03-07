@@ -21,8 +21,8 @@ export default function SequenceMemoryGame({ restart }: { restart: Function }) {
   }
   // 响应盒子点击事件
   function touch(index: number) {
-    highlightBox(index);
     if (isAllowedTouch) {
+      highlightBox(index);
       if (index === sequenceArr[userTouchIndex]) {
         if (userTouchIndex === sequenceArr.length - 1) {
           passThisLevel();

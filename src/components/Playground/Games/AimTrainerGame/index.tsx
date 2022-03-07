@@ -18,28 +18,31 @@ export default function AimTrainerGame() {
   // 创建随机坐标
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
-  useEffect(() => {
-    createRandomPosition();
-  }, []);
+
   function createRandomPosition() {
+    let h = 574,
+      w = 1000;
     if (battlefieldRef.current) {
       const { height, width } = battlefieldRef.current.getBoundingClientRect();
-      let randomX = 0,
-        randomY = 0;
-      while (randomX < 80 || randomX > width - 80) {
-        randomX = Math.round(Math.random() * width);
-      }
-      while (randomY < 80 || randomY > height - 80) {
-        randomY = Math.round(Math.random() * height);
-      }
-      setX(randomX);
-      setY(randomY);
+      h = height;
+      w = width;
     }
+    let randomX = 0,
+      randomY = 0;
+    while (randomX < 90 || randomX > w - 90) {
+      randomX = Math.round(Math.random() * w);
+    }
+    while (randomY < 90 || randomY > h - 90) {
+      randomY = Math.round(Math.random() * h);
+    }
+    setX(randomX);
+    setY(randomY);
   }
 
   function start() {
     setStartTimestramp(Date.now());
     setState(GAMING);
+    createRandomPosition();
   }
   function restart() {
     setHitCount(30);
@@ -48,17 +51,17 @@ export default function AimTrainerGame() {
 
   function Aim() {
     return (
-      <div
-        className={styles.aim}
-        onClick={hit}
-        style={{ left: x, top: y }}
-      ></div>
+      <div className={styles.aim} onClick={hit} style={{ left: x, top: y }}>
+        <div className={styles.aim2}>
+          <div className={styles.aim3}></div>
+        </div>
+      </div>
     );
   }
   function hit() {
-    if (audioRef.current) {
-      audioRef.current!.play();
-    }
+    // if (audioRef.current) {
+    //   audioRef.current!.play();
+    // }
     if (hitCount >= 1) {
       setHitCount(hitCount - 1);
       createRandomPosition();
@@ -85,6 +88,7 @@ export default function AimTrainerGame() {
       </div>
     );
   }
+
   function Gaming() {
     return (
       <div className={styles.battlefield} ref={battlefieldRef}>
@@ -120,6 +124,7 @@ export default function AimTrainerGame() {
         return null;
     }
   }
+
   return (
     <div className={`${styles.playground} playground onlyPC`}>
       {render()}

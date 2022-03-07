@@ -1,6 +1,7 @@
 import styles from './index.less';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, memo } from 'react';
 import icons from '@/components/icons';
+
 export default function VisualMemoryGame({ restart }: { restart: Function }) {
   // 设置游戏状态
   const GAMING = 'gaming';
@@ -30,19 +31,21 @@ export default function VisualMemoryGame({ restart }: { restart: Function }) {
   const boopSoundRef = useRef<HTMLAudioElement | null>(null);
 
   async function handleClick(index: number) {
-    if (!isAllowedHandle) return highlight(index);
-    if (userClickedArr.includes(index)) return;
-
+    if (!isAllowedHandle || userClickedArr.includes(index)) return;
     if (randomNumberArr.includes(index)) {
+      // highlight(index);
       if (userClickedRightArr.length === boxQuantity - 1) {
         whiteGlitter();
-        await sleep(500);
+        setUserClickedArr([...userClickedArr, index]);
+        setUserClickedRightArr([...userClickedRightArr, index]);
+        await sleep(600);
         nextLevel();
       } else {
         setUserClickedArr([...userClickedArr, index]);
         setUserClickedRightArr([...userClickedRightArr, index]);
       }
     } else {
+      shake(index);
       if (failedQuantity === 2) {
         if (lifeQuantity === 1) {
           setState(RESULT);
@@ -64,11 +67,14 @@ export default function VisualMemoryGame({ restart }: { restart: Function }) {
 
   async function showTargetBox() {
     await sleep(1200);
+    // revealSoundRef.current && revealSoundRef.current.play();
     arrRef.current &&
       arrRef.current.forEach((v) => {
         turnover(v);
       });
-    await sleep(200);
+    await sleep(1000);
+    // backSoundRef.current && backSoundRef.current.play();
+
     setIsAllowedHandle(true);
   }
 
@@ -143,22 +149,19 @@ export default function VisualMemoryGame({ restart }: { restart: Function }) {
   async function turnover(index: number) {
     await sleep(1);
     const targetBox = document.querySelector('#box' + index);
-    console.log(targetBox);
     if (targetBox) {
-      revealSoundRef.current && revealSoundRef.current.play();
       targetBox.classList.add(styles.turnover);
-      await sleep(200);
+      await sleep(1000);
       targetBox.classList.remove(styles.turnover);
-      backSoundRef.current && backSoundRef.current.play();
     }
   }
   async function shake(index: number) {
     await sleep(1);
     const targetBox = document.querySelector('#box' + index);
     if (targetBox) {
-      targetBox.classList.add(styles.highlight);
-      await sleep(200);
-      targetBox.classList.remove(styles.highlight);
+      targetBox.classList.add(styles.shake);
+      await sleep(300);
+      targetBox.classList.remove(styles.shake);
     }
   }
 
@@ -187,7 +190,9 @@ export default function VisualMemoryGame({ restart }: { restart: Function }) {
           ? styles.whiteBox
           : styles.wrongBox
         : ''
-    } }`;
+    } } ${
+      userClickedArr[userClickedArr.length - 1] === index ? styles.turnback : ''
+    }`;
   }
 
   function Gaming() {
@@ -197,7 +202,10 @@ export default function VisualMemoryGame({ restart }: { restart: Function }) {
           当前关卡:<i>{boxQuantity - 2}</i>
           生命值:{' '}
           {new Array(3).fill(null).map((v, index) => (
-            <span className={lifeQuantity > index ? styles.alive : ''}>
+            <span
+              key={index}
+              className={lifeQuantity > index ? styles.alive : ''}
+            >
               {icons.Heart()}
             </span>
           ))}

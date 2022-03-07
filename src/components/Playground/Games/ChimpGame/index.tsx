@@ -97,9 +97,9 @@ export default function ChimpGame({ restart }: { restart: Function }) {
   function Success() {
     return (
       <div className={styles.success}>
-        <h2>数量：</h2>
+        <h2>等级</h2>
         <h1>{level}</h1>
-        <h2>生命值：</h2>
+        <h2>生命值</h2>
         <h2> {3 - retryTimes} / 3</h2>
         <button className="continueBtn" onClick={nextLevel}>
           下一关
@@ -110,9 +110,9 @@ export default function ChimpGame({ restart }: { restart: Function }) {
   function Failed() {
     return (
       <div className={styles.failed}>
-        <h2>数量：</h2>
+        <h2>等级</h2>
         <h1>{level}</h1>
-        <h2>生命值：</h2>
+        <h2>生命值</h2>
         <h2> {3 - retryTimes} / 3</h2>
         <button className="tryAgainBtn" onClick={retry}>
           再试一次

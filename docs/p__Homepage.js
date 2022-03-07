@@ -93,7 +93,7 @@
       function b() {
         var i = {
           title: '\u4eba\u7c7b\u6781\u9650\u6d4b\u8bd5',
-          desc: '\u901a\u8fc7\u76ca\u667a\u6e38\u620f\u6765\u6d4b\u8bd5\u4f60\u5927\u8111\u7684\u6781\u9650\u6f5c\u529b\uff01',
+          desc: '\u901a\u8fc7\u76ca\u667a\u6e38\u620f\u6765\u6d4b\u8bd5\u4f60\u5927\u8111\u7684\u6781\u9650\u6f5c\u529b',
           link: '/reactiontime',
           icon: u['a'].HugeLighting,
         };

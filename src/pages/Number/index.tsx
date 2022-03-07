@@ -4,7 +4,7 @@ import icons from '@/components/Icons';
 export default function Number() {
   const playgroundIntro = {
     title: '数字记忆',
-    desc: '请记住顺序',
+    desc: '请记住接下来出现的数字',
     icon: icons.Number,
   };
   const gamesInfo = {

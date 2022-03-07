@@ -23,7 +23,8 @@
   }
 }
 
-.failed， .passed {
+.failed,
+.passed {
   h1 {
     color: white;
     font-size: 38px;
@@ -34,15 +35,19 @@
     line-height: 46px;
     font-weight: 550;
     color: white;
-
-    &:last-of-type {
-      text-decoration: line-through;
-    }
   }
 
   h3 {
     font-size: 28px;
     color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.failed {
+  h2 {
+    &:last-of-type {
+      text-decoration: line-through;
+    }
   }
 }
 
@@ -114,7 +119,22 @@
 }
 
 @media (max-width: 768px) {
+  .typing {
+    h1 {
+      color: white;
+      font-size: 36px;
+    }
+    input {
+      height: 75px;
+    }
+
+    h2 {
+      display: none;
+    }
+  }
+
   .nextBtn {
     margin-top: 50px;
+    height: 60px;
   }
 }

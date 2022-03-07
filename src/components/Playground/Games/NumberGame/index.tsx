@@ -32,14 +32,17 @@ export default function NumberGame({ restart }: { restart: Function }) {
       () => {
         setState(TYPING);
       },
-      length + 2 < 4 ? 4000 : (length + 2) * 1000,
+      length + 2 < 3 ? 3000 : (length + 2) * 1000,
     );
   }
+
+  const [failedResult, setFailedResult] = useState('');
   function handleKeyup(e: KeyboardEvent) {
     if (e.key === 'Enter') {
       if ((e.target as HTMLInputElement).value === num) {
         setState(PASSED);
       } else {
+        setFailedResult((e.target as HTMLInputElement).value);
         setState(FAILED);
       }
     }
@@ -61,9 +64,6 @@ export default function NumberGame({ restart }: { restart: Function }) {
   useEffect(() => {
     createRandomNum();
   }, []);
-  useEffect(() => {
-    console.log(num);
-  });
   function Showing() {
     return (
       <div className={styles.progress}>
@@ -73,7 +73,7 @@ export default function NumberGame({ restart }: { restart: Function }) {
             className={styles.progressFluid}
             ref={progressFluidRef}
             style={{
-              transition: `all ${level + 2 < 4 ? 3.8 : level + 1.8}s linear`,
+              transition: `all ${level + 2 < 3 ? 2.8 : level + 1.8}s linear`,
             }}
           ></div>
         </div>
@@ -115,7 +115,9 @@ export default function NumberGame({ restart }: { restart: Function }) {
         <h3>你的答案：</h3>
         <h2>{num}</h2>
         <h1>当前等级：{num.length}</h1>
-        <button onClick={nextLevel}>继续</button>
+        <button className="continueBtn" onClick={nextLevel}>
+          继续
+        </button>
       </div>
     );
   }
@@ -125,7 +127,7 @@ export default function NumberGame({ restart }: { restart: Function }) {
         <h3>正确答案：</h3>
         <h2>{num}</h2>
         <h3>你的答案：</h3>
-        <h2>{num}</h2>
+        <h2>{failedResult}</h2>
         <h1>当前等级：{num.length}</h1>
         <button className="tryAgainBtn" onClick={() => restart()}>
           重新开始

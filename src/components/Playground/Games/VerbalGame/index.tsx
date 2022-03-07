@@ -1,5 +1,6 @@
 import styles from './index.less';
 import { useState, useRef, useEffect, useMemo } from 'react';
+import Icons from '@/components/Icons';
 export default function VerbalGame({ restart }: { restart: Function }) {
   const words = useMemo(() => {
     const wordTxt = require('@/static/words/wordsEn.txt');
@@ -31,7 +32,6 @@ export default function VerbalGame({ restart }: { restart: Function }) {
   }
   function selectAnOldWord() {
     let randomIndex = Math.floor(Math.random() * currentWordsArr.length);
-    console.log(currentWordsArr.indexOf(currentWord), randomIndex);
     while (currentWordsArr.indexOf(currentWord) === randomIndex) {
       randomIndex = Math.floor(Math.random() * currentWordsArr.length);
     }
@@ -76,24 +76,38 @@ export default function VerbalGame({ restart }: { restart: Function }) {
     }
   }
   function Gaming() {
-    console.log(currentWordsArr);
     return (
-      <div>
-        生命：{lifeQuantity}
+      <div className={styles.gaming}>
+        <h2>
+          生命值：<i>{lifeQuantity}</i> 分数： <i>{currentWordsArr.length}</i>
+        </h2>
         <h1>{currentWord}</h1>
-        <h1>{score}</h1>
-        <button onClick={seen}>看过了</button>
-        <button onClick={haveNotSeen}>莫得看过</button>
+        <p>请问本轮出现过这个单词吗？</p>
+        <div className={styles.buttons}>
+          <button className="continueBtn" onClick={seen}>
+            出现过
+          </button>
+          <button className="continueBtn" onClick={haveNotSeen}>
+            没出现过
+          </button>
+        </div>
       </div>
     );
   }
   function Result() {
     return (
-      <div>
+      <div className={styles.result}>
+        {Icons.Verbal()}
         <h1>{score}个单词</h1>
-        <button onClick={() => restart()}>remake</button>
+        <button className="tryAgainBtn" onClick={() => restart()}>
+          再试一次
+        </button>
       </div>
     );
   }
-  return <div>{state === GAMING ? <Gaming></Gaming> : <Result></Result>}</div>;
+  return (
+    <div className="playground">
+      {state === GAMING ? <Gaming></Gaming> : <Result></Result>}
+    </div>
+  );
 }
