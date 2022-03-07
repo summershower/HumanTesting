@@ -32,7 +32,7 @@ export default function NumberGame({ restart }: { restart: Function }) {
       () => {
         setState(TYPING);
       },
-      length + 2 < 3 ? 3000 : (length + 2) * 1000,
+      length + 1 < 2 ? 2000 : (length + 1) * 1000,
     );
   }
 
@@ -73,7 +73,7 @@ export default function NumberGame({ restart }: { restart: Function }) {
             className={styles.progressFluid}
             ref={progressFluidRef}
             style={{
-              transition: `all ${level + 2 < 3 ? 2.8 : level + 1.8}s linear`,
+              transition: `all ${level + 1 < 2 ? 1.8 : level + 0.8}s linear`,
             }}
           ></div>
         </div>

@@ -47,14 +47,18 @@ function NumberGame(_a) {
       function () {
         setState(TYPING);
       },
-      length + 2 < 4 ? 4000 : (length + 2) * 1000,
+      length + 1 < 2 ? 2000 : (length + 1) * 1000,
     );
   }
+  var _e = react_1.useState(''),
+    failedResult = _e[0],
+    setFailedResult = _e[1];
   function handleKeyup(e) {
     if (e.key === 'Enter') {
       if (e.target.value === num) {
         setState(PASSED);
       } else {
+        setFailedResult(e.target.value);
         setState(FAILED);
       }
     }
@@ -76,9 +80,6 @@ function NumberGame(_a) {
   react_1.useEffect(function () {
     createRandomNum();
   }, []);
-  react_1.useEffect(function () {
-    console.log(num);
-  });
   function Showing() {
     return React.createElement(
       'div',
@@ -92,7 +93,7 @@ function NumberGame(_a) {
           ref: progressFluidRef,
           style: {
             transition:
-              'all ' + (level + 2 < 4 ? 3.8 : level + 1.8) + 's linear',
+              'all ' + (level + 1 < 2 ? 1.8 : level + 0.8) + 's linear',
           },
         }),
       ),
@@ -149,7 +150,14 @@ function NumberGame(_a) {
         '\u5F53\u524D\u7B49\u7EA7\uFF1A',
         num.length,
       ),
-      React.createElement('button', { onClick: nextLevel }, '\u7EE7\u7EED'),
+      React.createElement(
+        'button',
+        {
+          className: 'continueBtn ' + index_less_1['default'].tryAgainBtn,
+          onClick: nextLevel,
+        },
+        '\u7EE7\u7EED',
+      ),
     );
   }
   function Failed() {
@@ -159,7 +167,7 @@ function NumberGame(_a) {
       React.createElement('h3', null, '\u6B63\u786E\u7B54\u6848\uFF1A'),
       React.createElement('h2', null, num),
       React.createElement('h3', null, '\u4F60\u7684\u7B54\u6848\uFF1A'),
-      React.createElement('h2', null, num),
+      React.createElement('h2', null, failedResult),
       React.createElement(
         'h1',
         null,
@@ -169,7 +177,7 @@ function NumberGame(_a) {
       React.createElement(
         'button',
         {
-          className: 'tryAgainBtn',
+          className: 'tryAgainBtn ' + index_less_1['default'].tryAgainBtn,
           onClick: function () {
             return restart();
           },

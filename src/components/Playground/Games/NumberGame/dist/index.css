@@ -1,3 +1,11 @@
+@keyframes dropDown {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
 .typing,
 .failed,
 .progress,
@@ -18,26 +26,31 @@
   color: rgba(255, 255, 255, 0.6);
   font-weight: 400;
 }
-.failed， .passed h1 {
+.failed h1,
+.passed h1 {
   color: white;
   font-size: 38px;
 }
-.failed， .passed h2 {
+.failed h2,
+.passed h2 {
   font-size: 46px;
   line-height: 46px;
   font-weight: 550;
   color: white;
 }
-.failed， .passed h2:last-of-type {
-  text-decoration: line-through;
-}
-.failed， .passed h3 {
+.failed h3,
+.passed h3 {
   font-size: 28px;
   color: rgba(255, 255, 255, 0.6);
+}
+.failed h2:last-of-type {
+  text-decoration: line-through;
 }
 .progress h1 {
   color: white;
   font-size: 84px;
+  word-break: break-all;
+  animation: dropDown 0.4s ease;
 }
 .progressBar {
   position: relative;
@@ -48,6 +61,7 @@
   overflow: hidden;
   padding: 0;
   box-sizing: border-box;
+  animation: dropDown 0.5s ease;
 }
 .progressBar .progressFluid {
   position: absolute;
@@ -89,12 +103,25 @@
   width: 200px;
   height: 50px;
   line-height: 50px;
-  animation: dropDown 0.7s ease;
   font-size: 24px;
   margin-top: 30px;
 }
 @media (max-width: 768px) {
+  .typing h1 {
+    color: white;
+    font-size: 36px;
+  }
+  .typing input {
+    height: 75px;
+  }
+  .typing h2 {
+    display: none;
+  }
+  .progress h1 {
+    line-height: 84px;
+  }
   .nextBtn {
     margin-top: 50px;
+    height: 60px;
   }
 }

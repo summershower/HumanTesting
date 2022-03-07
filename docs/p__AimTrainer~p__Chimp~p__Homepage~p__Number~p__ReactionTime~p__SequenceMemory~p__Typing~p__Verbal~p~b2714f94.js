@@ -1786,7 +1786,7 @@
               () => {
                 d(a);
               },
-              e + 2 < 3 ? 3e3 : 1e3 * (e + 2),
+              e + 1 < 2 ? 2e3 : 1e3 * (e + 1),
             ));
         }
         var k = Object(i['useState'])(''),
@@ -1815,7 +1815,7 @@
                   ref: O,
                   style: {
                     transition: 'all '.concat(
-                      b + 2 < 3 ? 2.8 : b + 1.8,
+                      b + 1 < 2 ? 1.8 : b + 0.8,
                       's linear',
                     ),
                   },
