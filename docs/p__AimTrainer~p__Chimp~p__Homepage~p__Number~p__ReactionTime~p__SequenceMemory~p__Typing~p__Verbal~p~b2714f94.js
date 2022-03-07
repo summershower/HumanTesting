@@ -2087,7 +2087,7 @@
               );
             }, []),
             Object(h['jsxs'])('div', {
-              className: 'typing',
+              className: A.a.typing,
               children: [
                 Object(h['jsx'])('h1', { children: y > 0 ? y : 0 }),
                 Object(h['jsx'])('h2', {

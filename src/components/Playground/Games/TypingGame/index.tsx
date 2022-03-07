@@ -160,7 +160,7 @@ export default function TypingGame({ restart }: { restart: Function }) {
     }
 
     return (
-      <div className="typing">
+      <div className={styles.typing}>
         <h1>{wpm > 0 ? wpm : 0}</h1>
         <h2>字/每分钟</h2>
 
