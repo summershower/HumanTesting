@@ -1,7 +1,7 @@
 import { defineConfig } from 'umi';
 export default defineConfig({
   title: '人类极限测试',
-  favicon: 'public/favicon.ico',
+  favicon: 'favicon.ico',
   nodeModulesTransform: {
     type: 'none',
   },
